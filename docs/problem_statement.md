@@ -9,3 +9,10 @@ The Learner Support Portal will provide a single interface for learners to:
 - View progress summaries
 - Access learning resources
 - Play a mini-game to reinforce programming concepts
+
+## References
+- SkillsTrack Programmer Support Pack, Unit 4 (PDF)
+- SkillsTrack Programmer SP Initiation Activity (PDF)
+- Mission Binary Unlock Challenge (PDF)
+- SkillsTrack Programmer SP, Component 1 (PDF)
+- GitHub Documentation: [About project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects)

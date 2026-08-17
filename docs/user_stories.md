@@ -17,3 +17,10 @@
 
 6. As a learner, I want to play a mini-game so that I can reinforce programming concepts.  
    - Acceptance criteria: Game loads, records score, and saves results in Firebase.
+
+## References
+- SkillsTrack Programmer SP, Unit 4. Provided by SkillsTrack Training Centre.
+- SkillsTrack Programmer SP, Component 1. Provided by SkillsTrack Training Centre.
+- SkillsTrack Programmer SP Initiation Activity. Provided by SkillsTrack Training Centre.
+- Mission Binary Unlock Challenge. Provided by SkillsTrack Training Centre.
+

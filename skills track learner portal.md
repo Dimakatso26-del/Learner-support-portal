@@ -16,7 +16,7 @@ Execution Location
 ## BROWSER-CODE
 - Can’t be trusted with secrets, server code can.
 - Skills-Track-They divide responsibilities into frontend presentation, client-side behaviour, identity security, and cloud-hosted data persistence.
-=================================
+______________________________________
 ## HTML 
 - Role: Structure and Content.
 - Function: It builds the fundamental skeleton of the application web page. It defines   user interface (UI) components such as input fields for email/password, sign-in buttons, navigation headers, and data containers where database entries will render. 
@@ -104,31 +104,31 @@ Supa-base Architecture
 - Tampering and Code Injection: Flaws in handling client-side inputs or untrusted third-party scripts can lead to Cross-Site Scripting , letting attackers steal active session cookies or execute malicious actions. 
 
 # Part 2- Map actual application
-================================================
+=============================================
 feature | Classification | Justification
-================================================
+=============================================
 
-Registration	Both	Client- form + validation
+Registration | Both	| Client- form + validation
 Server-firebase auth creates user
-Login	Both	Client-capture email/password
+Login |	Both	| Client-capture email/password
 Server-firebase auth verifies
-Form validation	Client-side	JS checks required fields before sending to firebase
-Displaying the dashboard	Client-side	JS fetches data and renders html/ CSS in browser
-Creating a learning task	Both	Client-build task object.
+Form validation	| Client-side |	JS checks required fields before sending to firebase
+Displaying the dashboard |	Client-side	JS | fetches data and renders html/ CSS in browser
+Creating a learning task	| Both	| Client-build task object.
 Server-firebase DB stores it
-Retrieving tasks	Both	Client-JS requests data.
+Retrieving tasks	| Both | Client-JS requests data.
 Server-firebase DB returns it
-Updating a task	Both	Client-JS sends update
+Updating a task	| Both |Client-JS sends update
 Server-firebase DB updates record
-Deleting a task	Both	Client-JS sends delete
+Deleting a task | Both | Client-JS sends delete
 Server-firebase DB removes record
-Calculating learner progress	Client-side	JS uses filter() / map() on task array to calculate%
-Filtering/searching tasks	Client-side	JS filters array already loaded in browser
-Storing learner data	Server/Cloud Service	Firebase real-time data base stores all data
-Authentication	Server/Cloud Service	Firebase authentication manages users/token
-Database security/access rules	Server/Cloud Service	Firebase security rules enforce who can read/write
-Updating the DOM	Client-side	JS manipulates html elements after data changes
-Displaying success/error messages	Client-side	JS shows alerts base on firebase response
+Calculating learner progress | Client-side |	JS uses filter() / map() on task array to calculate%
+Filtering/searching tasks |	Client-side |	JS filters array already loaded in browser
+Storing learner data | Server/Cloud Service	| Firebase real-time data base stores all data
+Authentication	| Server/Cloud Service | Firebase authentication manages users/token
+Database security/access rules | Server/Cloud Service |	Firebase security rules enforce who can read/write
+Updating the DOM | Client-side | JS manipulates html elements after data changes
+Displaying success/error messages |	Client-side	JS | shows alerts base on firebase response
 
 
 

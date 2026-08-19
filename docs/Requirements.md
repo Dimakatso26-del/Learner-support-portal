@@ -4,7 +4,7 @@
 
 SkillsTrack Training Centre currently manages learner goals, tasks, support requests and learner progress using separate documents and messages. This makes it difficult for learners to track their work and for assessors to monitor learner performance.
 
-The organisation requires a browser-based Learner Support Portal that centralises task management, support bookings, learner progress tracking and learning resources. 【1-27ac31】
+The organisation requires a browser-based Learner Support Portal that centralises task management, support bookings, learner progress tracking and learning resources. 
 
 ---
 
@@ -25,7 +25,7 @@ The system will allow assessors to:
 
 - View learner activity.
 - Review support bookings.
-- Update booking statuses where required. 【1-27ac31】
+- Update booking statuses where required. 
 
 ---
 

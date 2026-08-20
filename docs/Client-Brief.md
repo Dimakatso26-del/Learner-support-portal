@@ -1,13 +1,13 @@
-Client-Brief.md-what the client told you. is the problem and request
+Client-Brief.md-what the client told you, is the problem and request.
 Project- SkillsTrack Learner Support Portal
 Client- SkillsTrack Training Centre
 
-Client problem-SkillsTrack Training Centre supports learners who attend short occupational programs
+Client problem-SkillsTrack Training Centre supports learners who attend short occupational programs.
 Current problem-Learners currently record goals, tasks, support bookings and progress in separate documents and messages.
 Assessors struggle to see what work is outstanding, which learners need support, and whether learners are making progress
 
 Client request-The centre requires a browser-based Learner Support Portal. The portal must allow registered users to manage learning tasks, book support sessions, review progress, use learning resources and complete a short coding game.
-The system must use Java-script for application logic and Firebase real-time database as the database
+The system must use Java-script for application logic and Firebase real-time database as the database.
 
 Client objectives
 The Client  wants the system to:

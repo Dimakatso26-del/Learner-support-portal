@@ -25,6 +25,23 @@ Firebase Firestore Database
       ├── Challenges
       └── 
 
+2. Firebase Services
+Firebase Authentication
+
+Used for:
+
+Learner Login
+Learner Registration
+Assessor Login
+Assessor Registration
+Password Reset
+Session Management
+
+Authentication Methods:
+1 Email & Password
+2 Google Authentication (Future)
+3 Microsoft Authentication (Future)
+
 
 3. Database Design 
 User's Collection

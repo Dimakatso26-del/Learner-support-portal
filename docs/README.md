@@ -357,17 +357,15 @@ Administrative views include:
 ### Backend
 
 - Node.js
-- Express.js
 
 ### Database
 
 - MySQL
-- PostgreSQL
+- Firebase API
 
 ### Authentication
 
 - JWT Authentication
-- Role-Based Access Control (RBAC)
 
 ### Version Control
 - Git
@@ -377,7 +375,7 @@ Administrative views include:
 
 - Visual Studio Code
 - Git Bash
-- Postman
+- PowerShell 
 ______________________________
 ## IDE and GitHub Setup
 

@@ -67,3 +67,47 @@ Task Collection
   "learnerId": "uid123"
 }
 
+Progress Collection
+
+{
+  "progressId": "prog001",
+  "learnerId": "uid123",
+  "module": "Computing Fundamentals",
+  "completed": 6,
+  "total": 6,
+  "passRate": 100,
+  "status": "Passed"
+}
+
+Bookings Collection
+
+{
+  "bookingId": "book001",
+  "learnerId": "uid123",
+  "assessorId": "uid987",
+  "topic": "JavaScript Essentials",
+  "date": "2026-07-20",
+  "time": "12:00",
+  "status": "Confirmed"
+}
+
+Code Challenge Collection
+
+{
+  "questionId": "q001",
+  "category": "Data Structures",
+  "question": "FIFO structure?",
+  "options": [
+    "Stack",
+    "Queue",
+    "BST",
+    "Hash Table"
+  ],
+  "answer": "Queue"
+}
+
+4. REST API Structure 
+
+Base URL:
+/api/v1
+

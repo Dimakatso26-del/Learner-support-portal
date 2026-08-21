@@ -1,4 +1,5 @@
 # Client-Brief
+
 ## Client-Brief what the client told you, is the problem and request. 
 
 Project - SkillsTrack Learner Support Portal 
@@ -11,8 +12,10 @@ Assessors struggle to see what work is outstanding, which learners need support,
 Client request - The centre requires a browser-based Learner Support Portal. 
 - The portal must allow registered users to manage learning tasks, book support sessions, review progress, use learning resources and complete a short coding game. 
 - The system must use Java-script for application logic and Firebase real-time database as the database.
+---
 
 # Client objectives 
+
 ## The Client wants the system to: 
 - Provide a single, clear interface for managing tasks and support requests
 - Allow users to register, sign in and view their own information

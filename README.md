@@ -134,7 +134,7 @@ Learners can:
 When no tasks match search criteria:
 
 - Display "No Tasks Found"
-- Provide filter reset functionality. 【1-24ffa1】
+- Provide filter reset functionality. 
 
 ---
 
@@ -211,7 +211,7 @@ Benefits:
 
 - Encourages participation.
 - Reinforces technical concepts.
-- Promotes continuous learning. 【1-24ffa1】
+- Promotes continuous learning.
 
 
 ---
@@ -389,5 +389,5 @@ ______________________________
 4. Configure Git credentials.
 
 ```bash
-git config --global user.name "Your Name"
-git config --global user.email "youremail@example.com"
+git config --global user.name "Your Name" eh. Dimakatso 
+git config --global user.email "youremail@example.com" eh., DimakatsoMosima@tpcstudents.co.za

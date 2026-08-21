@@ -1,0 +1,19 @@
+const word = "code wars" //declare function as a string
+console.log(word)
+
+function acronym() {  //use function to create acronym
+    let split = word.split(" ") //split the string into words by spaces
+    console.log(split)
+let first = split.map(word => word[0].toUpperCase()).join(" ") //take the first letter of each word, Uppercase each letter using toUpperCase(), and join them together with a space in between.
+console.log(first)
+}
+acronym() //call the function
+
+
+/* ===================== */
+/* ---Terminal Output--- */
+/* ===================== */
+/*PS C:\Users\0102185246083\Desktop\Acronym Generator> node Task.js
+code wars
+[ 'code', 'wars' ]
+C W */

@@ -68,6 +68,7 @@
 ---
 
 ## Test Coverage Goals
+
 Functional Testing
 - Core features work as expected.  
 Usability Testing

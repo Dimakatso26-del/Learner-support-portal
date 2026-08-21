@@ -1,6 +1,7 @@
 ## STUDENT/ASSESSOR_Login
 
 BEGIN
+
 Display login interface
 
     INPUT user_role
@@ -20,6 +21,7 @@ Display login interface
 ## STUDENT_REgistration
 
 BEGIN
+
 Collect student_details
 
     INPUT first_name
@@ -77,6 +79,7 @@ END
 ## STUDENT_Tasks_Management
 
 BEGIN
+
 Retrieve learner_tasks
 
     INPUT search_keyword
@@ -100,6 +103,7 @@ END
 ## STUDENT_Progress_Report
 
 BEGIN
+
 Retrieve module_results
 
     FOR each module DO
@@ -166,6 +170,7 @@ END
 ## STUDENT_Settings
 
 BEGIN
+
 Display preference_options
 
     INPUT theme_selection

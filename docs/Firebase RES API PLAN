@@ -22,3 +22,17 @@ Firebase Firestore Database
       ├── Bookings
       ├── Challenges
       └── 
+
+
+3. Database Design 
+User's Collection
+
+{
+  "userId": "uid123",
+  "role": "learner",
+  "firstName": "Dimakatso",
+  "lastName": "Mosima",
+  "email": "learner@email.com",
+  "phone": "0661352502",
+  "createdAt": "timestamp
+

@@ -6,7 +6,7 @@ A web-based academic assistance and learner management system, the SkillsTrack L
 
 There are two main user roles available on the platform:
 
-1. Students or Learners 10
+1. Students or Learners
 2. Academic Support Staff Assessors
 
 While assessors may review academic progress, administer support sessions, and keep an eye on learner performance, students can use the system to manage coursework, track progress, take part in coding challenges, and ask for academic help.

@@ -44,6 +44,7 @@ Authentication Methods:
 
 
 3. Database Design 
+
 User's Collection
 
 {
@@ -54,4 +55,15 @@ User's Collection
   "email": "learner@email.com",
   "phone": "0661352502",
   "createdAt": "timestamp
+
+Task Collection
+
+{
+  "taskId": "task001",
+  "title": "Project JavaScript",
+  "category": "Coding",
+  "dueDate": "2026-02-28",
+  "status": "Outstanding",
+  "learnerId": "uid123"
+}
 

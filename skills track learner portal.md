@@ -16,7 +16,7 @@ Execution Location
 ## BROWSER-CODE
 - Can’t be trusted with secrets, server code can.
 - Skills-Track-They divide responsibilities into frontend presentation, client-side behaviour, identity security, and cloud-hosted data persistence.
-______________________________________
+___________________________________
 ## HTML 
 - Role: Structure and Content.
 - Function: It builds the fundamental skeleton of the application web page. It defines   user interface (UI) components such as input fields for email/password, sign-in buttons, navigation headers, and data containers where database entries will render. 
@@ -26,7 +26,7 @@ ______________________________________
 ## JavaScript (JS)
 - Role: Application Logic and Integration.
 - Function: It acts as the functional engine connecting the local web browser to external cloud services. JavaScript captures form values from the HTML inputs, responds to click actions via event listeners, triggers Firebase functions, and dynamically modifies DOM elements to show database updates without refreshing the page. 
-________________________________________
+__________________________________
 # Backend-as-a-Service (The Cloud)
 ## Firebase Authentication
 - Role: User Identity and Access Control.
@@ -104,9 +104,9 @@ Supa-base Architecture
 - Tampering and Code Injection: Flaws in handling client-side inputs or untrusted third-party scripts can lead to Cross-Site Scripting , letting attackers steal active session cookies or execute malicious actions. 
 
 # Part 2- Map actual application
-=============================================
+=========================================
 feature | Classification | Justification
-=============================================
+=========================================
 
 Registration | Both	| Client- form + validation
 Server-firebase auth creates user
@@ -118,7 +118,7 @@ Creating a learning task	| Both	| Client-build task object.
 Server-firebase DB stores it
 Retrieving tasks	| Both | Client-JS requests data.
 Server-firebase DB returns it
-Updating a task	| Both |Client-JS sends update
+Updating a task	| Both | Client-JS sends update
 Server-firebase DB updates record
 Deleting a task | Both | Client-JS sends delete
 Server-firebase DB removes record

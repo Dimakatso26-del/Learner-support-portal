@@ -1,0 +1,113 @@
+1. System Architecture
+
+Frontend (React.js)
+
+      |
+      V
+
+Firebase Authentication
+      |
+      V
+
+REST API Layer (Node.js + Express)
+
+      |
+      V
+
+Firebase Firestore Database
+
+      |
+      ├── Learners
+      ├── Assessors
+      ├── Tasks
+      ├── Progress
+      ├── Bookings
+      ├── Challenges
+      └── 
+
+2. Firebase Services
+Firebase Authentication
+
+Used for:
+
+Learner Login
+Learner Registration
+Assessor Login
+Assessor Registration
+Password Reset
+Session Management
+
+Authentication Methods:
+1 Email & Password
+2 Google Authentication (Future)
+3 Microsoft Authentication (Future)
+
+
+3. Database Design 
+
+User's Collection
+
+{
+  "userId": "uid123",
+  "role": "learner",
+  "firstName": "Dimakatso",
+  "lastName": "Mosima",
+  "email": "learner@email.com",
+  "phone": "0661352502",
+  "createdAt": "timestamp
+
+Task Collection
+
+{
+  "taskId": "task001",
+  "title": "Project JavaScript",
+  "category": "Coding",
+  "dueDate": "2026-02-28",
+  "status": "Outstanding",
+  "learnerId": "uid123"
+}
+
+Progress Collection
+
+{
+  "progressId": "prog001",
+  "learnerId": "uid123",
+  "module": "Computing Fundamentals",
+  "completed": 6,
+  "total": 6,
+  "passRate": 100,
+  "status": "Passed"
+}
+
+Bookings Collection
+
+{
+  "bookingId": "book001",
+  "learnerId": "uid123",
+  "assessorId": "uid987",
+  "topic": "JavaScript Essentials",
+  "date": "2026-07-20",
+  "time": "12:00",
+  "status": "Confirmed"
+}
+
+Code Challenge Collection
+
+{
+  "questionId": "q001",
+  "category": "Data Structures",
+  "question": "FIFO structure?",
+  "options": [
+    "Stack",
+    "Queue",
+    "BST",
+    "Hash Table"
+  ],
+  "answer": "Queue"
+}
+
+4. REST API Structure 
+
+Base URL:
+/api/v1
+

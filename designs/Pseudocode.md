@@ -1,7 +1,7 @@
 ## STUDENT/ASSESSOR_Login
 
 BEGIN
-    Display login interface
+Display login interface
 
     INPUT user_role
     INPUT email_address
@@ -20,7 +20,7 @@ BEGIN
 ## STUDENT_REgistration
 
 BEGIN
-    Collect student_details
+Collect student_details
 
     INPUT first_name
     INPUT last_name
@@ -44,6 +44,7 @@ END
 ## STUDENT_Login
 
 BEGIN
+    
     INPUT email
     INPUT password
 
@@ -54,6 +55,7 @@ BEGIN
 ## STUDENT_Dashboard
 
 BEGIN
+    
     Retrieve learner_profile
     Retrieve task_statistics
 
@@ -75,7 +77,7 @@ END
 ## STUDENT_Tasks_Management
 
 BEGIN
-    Retrieve learner_tasks
+Retrieve learner_tasks
 
     INPUT search_keyword
     INPUT category_filter
@@ -98,7 +100,7 @@ END
 ## STUDENT_Progress_Report
 
 BEGIN
-    Retrieve module_results
+Retrieve module_results
 
     FOR each module DO
         Calculate completion_rate
@@ -116,6 +118,7 @@ END
 ## STUDENT_Support_Session_Bookings
 
 BEGIN
+    
     INPUT module_topic
     INPUT preferred_date
     INPUT preferred_time
@@ -135,6 +138,7 @@ END
 ## STUDENT_Coded_Game_Challenge
 
 BEGIN
+    
     Initialize score
     Initialize timer
 
@@ -162,7 +166,7 @@ END
 ## STUDENT_Settings
 
 BEGIN
-    Display preference_options
+Display preference_options
 
     INPUT theme_selection
     INPUT display_density
@@ -186,7 +190,8 @@ END
 ## ASSESSOR_Registration
 
 BEGIN
-    Collect assessor_information
+
+Collect assessor_information
 
     INPUT first_name
     INPUT last_name
@@ -208,6 +213,7 @@ END
 ## ASSESSOR_Login
 
 BEGIN
+    
     INPUT email
     INPUT password
 
@@ -223,6 +229,7 @@ END
 ## ASSESSOR_Dashboard
 
 BEGIN
+    
     Retrieve learner_statistics
     Retrieve booking_statistics
     Retrieve activity_log
@@ -243,6 +250,7 @@ END
 ## ASSESSOR_TASKS_MANAGEMENT_FOR_STUDENTS
 
 BEGIN
+    
     Retrieve learner_records
 
     INPUT search_term
@@ -265,6 +273,7 @@ END
 ## ASSESSOR_Bookings_Management
 
 BEGIN
+    
     Retrieve all_bookings
 
     INPUT status_filter
@@ -290,6 +299,7 @@ END
 ## ASSESSOR_Settings
 
 BEGIN
+    
     Display assessor_preferences
 
     INPUT theme_preference
@@ -311,6 +321,7 @@ END
 ## Portal's_End_State
 
 BEGIN
+    
     Terminate current_process
 
     Save outstanding_changes

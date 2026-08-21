@@ -1,0 +1,24 @@
+Frontend (React.js)
+
+      |
+      V
+
+Firebase Authentication
+      |
+      V
+
+REST API Layer (Node.js + Express)
+
+      |
+      V
+
+Firebase Firestore Database
+
+      |
+      ├── Learners
+      ├── Assessors
+      ├── Tasks
+      ├── Progress
+      ├── Bookings
+      ├── Challenges
+      └── 

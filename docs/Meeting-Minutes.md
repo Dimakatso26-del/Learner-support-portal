@@ -1,13 +1,13 @@
 # SKILLS LEARNER SUPPORT PORTAL GROUP MEETING MINUTES
-## GROUP MEMBERS
+# GROUP MEMBERS
 - Dimakatso Mosima
 - Tebogo Mnguni
 - Senzokuhle Ngubane
-## ADRESS: 13 UMGAZI STREET FLOOR 2
+# ADDRESS: 13 UMGAZI STREET FLOOR 2
 
-## Meeting 1: 04/08/2026
-## Time: 13h00-16h30
-## Attendees: Dimakatso, Tebogo and Senzo
+# Meeting 1: 04/08/2026
+# Time: 13h00-16h30
+# Attendees: Dimakatso, Tebogo and Senzo
 
 # PLAN OF ACTION
 - Understanding Project brief

@@ -345,7 +345,7 @@ Administrative views include:
 - User preference management.
 - Adaptive display options.
 ----
-## Recommended Technology Stack
+## Technology Stack
 
 ### Frontend
 

@@ -352,7 +352,6 @@ Administrative views include:
 - HTML5
 - CSS3
 - JavaScript
-- React
 
 ### Backend
 
@@ -360,7 +359,6 @@ Administrative views include:
 
 ### Database
 
-- MySQL
 - Firebase API
 
 ### Authentication

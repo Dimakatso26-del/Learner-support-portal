@@ -18,12 +18,72 @@ Firebase Firestore Database
 
       |
       ├── Learners
+      |         └── LearnerId
+      |         ├── LearnerId
+      |         ├── DisplayName
+      |         ├── Email
+      |         ├── Role
+      |         ├── Programme
+      |         ├── Phone
+      |         ├── CreatedAt (date)
+      |         ├── Last Login (date)
+      |
       ├── Assessors
+      |          └── AssessorId
+      |          ├── DisplayName
+      |          ├── Email
+      |          ├── Role
+      |          ├── Derpartment
+      |          ├── EmployeeNumber
+      |          ├── CreatedAt (date)
+      | 
       ├── Tasks
+      |           └── TaskId
+      |           ├── LearnerId
+      |           ├── Title
+      |           ├── Description ( GET, POST AND EMPLEMENT)
+      |           ├── Catergory (JAVASCRIPT, HTML AND CSS)
+      |           ├── Due Date
+      |           ├── Priority (Medium)
+      |           ├── Completed
+      |           ├── CreatedAt (date)
+      |           ├── UpdatedAt (date)
+      |
       ├── Progress
+      |           └── ProgressId
+      |           ├── LearnerId
+      |           ├── TotalTasks
+      |           ├── CompletedTasks
+      |           ├── Outstanding Tasks
+      |           ├── Overdue Tasks
+      |           ├── Progress Percentage
+      |           ├── Average Score
+      |           ├── Last updated (date)
+      | 
       ├── Bookings
+      |           └── BookingId
+      |           ├── LearnerId
+      |           ├── LearnerName
+      |           ├── Topic
+      |           ├── Preffered Date
+      |           ├── Preffered Time
+      |           ├── Mode (ONLINE OR FACE TO FACE)
+      |           ├── Notes
+      |           ├── Status
+      |           ├── AssessorId
+      |           ├── CreatedAT (date)
+      |
       ├── Challenges
-      └── 
+      |          └── ScoreId
+      |          ├── LearnerId
+      |          ├── Game Name
+      |          ├── Score
+      |          ├── HighScore
+      |          ├── Duration Seconds
+      |          ├── Level reached
+      |          ├── CompletedAt (date)
+      |          ├── Feedback
+      |          └── 
 
 2. Firebase Services
 Firebase Authentication

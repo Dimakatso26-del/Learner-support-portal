@@ -16,13 +16,13 @@ _______________________________
 
 The system's main goals are:
 
-Learner support services should be gathered in one place
-Improve student involvement.
-Monitor academic achievement and project performance.
-Encourage communication between assessors and students.
-Schedule and manage support sessions.
-Games should be used to promote interaction.
-Give management and assessors analytical data.
+- Learner support services should be gathered in one place
+- Improve student involvement.
+- Monitor academic achievement and project performance.
+- Encourage communication between assessors and students.
+- Schedule and manage support sessions.
+- Games should be used to promote interaction.
+- Give management and assessors analytical data.
 
 ________________________________
 ## User Roles
@@ -31,25 +31,25 @@ ________________________________
 
 Students can:
 
-Create an account.
-Open the portal and log in.
-Examine academic dashboards.
-Track assignment progress.
-Manage a number of tasks.
-Schedule assistance sessions.
-Take part in coding challenges.
-Update and modify your accessibility preferences and profile settings.
+- Create an account.
+- Open the portal and log in.
+- Examine academic dashboards.
+- Track assignment progress.
+- Manage a number of tasks.
+- Schedule assistance sessions.
+- Take part in coding challenges.
+- Update and modify your accessibility preferences and profile settings.
 
 ### Assessors
 
 Assessors are able to:
 
-Log in to the platform after registering.
-Keep an eye on students' performance.
-Examine learner progress reports.
-Monitor support bookings.
-Assess system analytics.
-Set up the notification settings.
+- Log in to the platform after registering.
+- Keep an eye on students' performance.
+- Examine learner progress reports.
+- Monitor support bookings.
+- Assess system analytics.
+- Set up the notification settings.
 
 _________________________________
 ## Functional Requirements 
@@ -345,29 +345,25 @@ Administrative views include:
 - User preference management.
 - Adaptive display options.
 ----
-## Recommended Technology Stack
+## Technology Stack
 
 ### Frontend
 
 - HTML5
 - CSS3
 - JavaScript
-- React
 
 ### Backend
 
 - Node.js
-- Express.js
 
 ### Database
 
-- MySQL
-- PostgreSQL
+- Firebase API
 
 ### Authentication
 
 - JWT Authentication
-- Role-Based Access Control (RBAC)
 
 ### Version Control
 - Git
@@ -377,7 +373,7 @@ Administrative views include:
 
 - Visual Studio Code
 - Git Bash
-- Postman
+- PowerShell 
 ______________________________
 ## IDE and GitHub Setup
 

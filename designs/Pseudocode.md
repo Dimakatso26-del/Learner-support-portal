@@ -1,90 +1,81 @@
 ## STUDENT/ASSESSOR_Login
-
 BEGIN
-
-Display login interface
-
     INPUT user_role
     INPUT email_address
     INPUT password
 
     IF credentials_are_valid(email_address, password) THEN
-        Grant access to portal
-        Redirect to role_dashboard
+        IF user_role = "STUDENT" THEN
+            Redirect to STUDENT_Dashboard
+        ELSE IF user_role = "ASSESSOR" THEN
+            Redirect to ASSESSOR_Dashboard
+        ENDIF
     ELSE
         Display authentication_error
     ENDIF
 
     IF user_selects_register THEN
-        Redirect to registration
+        IF user_role = "STUDENT" THEN
+            Redirect to STUDENT_Registration
+        ELSE IF user_role = "ASSESSOR" THEN
+            Redirect to ASSESSOR_Registration
+        ENDIF
+    ENDIF
+END
+
 
 ## STUDENT_REgistration
 
 BEGIN
-
-Collect student_details
-
-    INPUT first_name
-    INPUT last_name
-    INPUT id_number
-    INPUT contact_number
-    INPUT email
-    INPUT password
-    INPUT confirm_password
+    INPUT first_name, last_name, id_number, contact_number, email, password, confirm_password
 
     IF password = confirm_password THEN
         Create learner_account
         Store learner_record
         Display registration_success
+        Provide link_to_login
     ELSE
         Display password_mismatch_error
     ENDIF
-
-    Provide link_to_login
 END
+
+
 
 ## STUDENT_Login
 
 BEGIN
-    
-    INPUT email
-    INPUT password
+    INPUT email, password
 
-    Validate credentials
+    IF credentials_are_valid(email, password) THEN
+        Redirect to STUDENT_Dashboard
+    ELSE
+        Display login_error
+    ENDIF
+END
 
-    IF valid THEN
 
 ## STUDENT_Dashboard
 
 BEGIN
-    
     Retrieve learner_profile
     Retrieve task_statistics
 
-    Calculate:
-        total_tasks
-        completed_tasks
-        outstanding_tasks
-        overdue_tasks
+    Calculate total_tasks, completed_tasks, outstanding_tasks, overdue_tasks
 
     Display progress_summary
 
     Retrieve recent_outstanding_tasks
-
     FOR each task IN outstanding_tasks DO
         Display task_details
     ENDFOR
 END
 
+
 ## STUDENT_Tasks_Management
 
 BEGIN
-
-Retrieve learner_tasks
-
-    INPUT search_keyword
-    INPUT category_filter
-    INPUT date_filter
+    Retrieve learner_tasks
+    INPUT search_keyword, category_filter, date_filter
 
     Filter task_list
 
@@ -100,11 +91,11 @@ Retrieve learner_tasks
     ENDIF
 END
 
+
 ## STUDENT_Progress_Report
 
 BEGIN
-
-Retrieve module_results
+    Retrieve module_results
 
     FOR each module DO
         Calculate completion_rate
@@ -118,6 +109,9 @@ Retrieve module_results
         Generate printable_report
     ENDIF
 END
+
+
+
 
 ## STUDENT_Support_Session_Bookings
 
@@ -142,15 +136,11 @@ END
 ## STUDENT_Coded_Game_Challenge
 
 BEGIN
-    
-    Initialize score
-    Initialize timer
+    Initialize score, timer
 
     WHILE current_question <= total_questions DO
-
         Display question
         Start countdown_timer
-
         INPUT learner_answer
 
         IF answer_is_correct THEN
@@ -159,24 +149,18 @@ BEGIN
         ENDIF
 
         Move to next_question
-
     ENDWHILE
 
     Update leaderboard
-
     Display final_results
 END
+
 
 ## STUDENT_Settings
 
 BEGIN
-
-Display preference_options
-
-    INPUT theme_selection
-    INPUT display_density
-
-    INPUT profile_information
+    Display preference_options
+    INPUT theme_selection, display_density, profile_information
 
     IF save_changes_selected THEN
         Update learner_preferences
@@ -192,74 +176,54 @@ Display preference_options
     ENDIF
 END
 
+
 ## ASSESSOR_Registration
 
 BEGIN
-
-Collect assessor_information
-
-    INPUT first_name
-    INPUT last_name
-    INPUT contact_number
-    INPUT email
-    INPUT password
-    INPUT confirm_password
+    INPUT first_name, last_name, contact_number, email, password, confirm_password
 
     IF password = confirm_password THEN
         Create assessor_account
         Store assessor_record
+        Display registration_success
+        Redirect to login_page
     ELSE
-        Display validation_error
+        Display password_mismatch_error
     ENDIF
-
-    Redirect to login_page
 END
+
 
 ## ASSESSOR_Login
 
 BEGIN
-    
-    INPUT email
-    INPUT password
+    INPUT email, password
 
-    Authenticate assessor
-
-    IF authentication_successful THEN
-        Open assessor_dashboard
+    IF credentials_are_valid(email, password) THEN
+        Redirect to ASSESSOR_Dashboard
     ELSE
         Display login_error
     ENDIF
 END
 
+
 ## ASSESSOR_Dashboard
 
 BEGIN
-    
-    Retrieve learner_statistics
-    Retrieve booking_statistics
-    Retrieve activity_log
+    Retrieve learner_statistics, booking_statistics, activity_log
 
-    Calculate:
-        total_learners
-        pending_bookings
-        overdue_tasks
-        average_completion_rate
+    Calculate total_learners, pending_bookings, overdue_tasks, average_completion_rate
 
     Display learner_overview
-
     Display recent_activity
-
     Display upcoming_support_sessions
 END
+
 
 ## ASSESSOR_TASKS_MANAGEMENT_FOR_STUDENTS
 
 BEGIN
-    
     Retrieve learner_records
-
-    INPUT search_term
-    INPUT status_filter
+    INPUT search_term, status_filter
 
     Filter learner_list
 
@@ -275,19 +239,16 @@ BEGIN
     Support pagination_navigation
 END
 
+
 ## ASSESSOR_Bookings_Management
 
 BEGIN
-    
     Retrieve all_bookings
-
-    INPUT status_filter
-    INPUT date_range
+    INPUT status_filter, date_range
 
     Display filtered_bookings
 
     FOR each booking DO
-
         IF booking_status = pending THEN
             Allow confirm_action
             Allow decline_action
@@ -295,23 +256,17 @@ BEGIN
 
         Allow reschedule_action
         Allow cancel_action
-
     ENDFOR
 
     Update booking_statuses
 END
 
+
 ## ASSESSOR_Settings
 
 BEGIN
-    
     Display assessor_preferences
-
-    INPUT theme_preference
-    INPUT notification_preferences
-    INPUT default_landing_view
-
-    INPUT profile_information
+    INPUT theme_preference, notification_preferences, default_landing_view, profile_information
 
     IF save_changes_selected THEN
         Store updated_preferences
@@ -323,16 +278,14 @@ BEGIN
     ENDIF
 END
 
+
 ## Portal's_End_State
 
 BEGIN
-    
     Terminate current_process
-
     Save outstanding_changes
-
     Release allocated_resources
-
     End user_interaction
 END
+
 

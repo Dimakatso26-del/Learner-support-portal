@@ -171,3 +171,36 @@ Code Challenge Collection
 Base URL:
 /api/v1
 
+5. CRUD Operations
+
+| **Object**       | **Create(POST)**                        | **Read(GET)**         | **Update(PUT)**              | **Delete(DELETE)**      |
+| **Users**        | Register new learner/assessor           | Profile fetch         | Update profile/settings      | Account deletion        |
+| **Tasks**        | Add new task	                         | Fetch learner tasks   | Mark complete/update status  | Remove task             |
+| **Progress**     | Auto-generated	                         | View progress summary | Update after task completion | N/A (system-managed)    |
+| **Bookings**     | Submit booking	                         | View bookings	       | Confirm/reschedule/decline	  | Cancel booking          |
+| **Challenges**   | System adds	                         | Fetch challenge	 | Submit answer	              | N/A                     |
+| **Leaderboard**  | Auto-update	                         | View leaderboard	 | Update XP/rank	              | N/A                     |
+
+
+
+6. Validation Rules
+
+- Email format must match regex ^[^@]+@[^@]+\.[^@]+$.
+- Password minimum 8 characters, must include uppercase, lowercase, number.
+- Dates must be valid ISO YYYY-MM-DD.
+- Booking times must be within working hours (08:00–18:00).
+- XP updates only allowed via challenge completion.
+
+7. Security Approach
+
+Authentication: Firebase Auth with email/password, optional 2FA.
+
+Authorization:
+* Learners can only access their own tasks, progress, bookings.
+* Assessors can view learners they are assigned to, manage bookings.
+* Assessors have full access.
+
+Firestore Rules:
+* match /users/{userId} { allow read, update: if request.auth.uid == userId }
+* match /tasks/{taskId} { allow read: if request.auth.uid == resource.data.learnerId }
+* match /bookings/{bookingId} { allow update: if request.auth.uid == resource.data.assessorId }

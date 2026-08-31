@@ -44,6 +44,7 @@ Firebase Firestore Database
       |           ├── Description ( GET, POST AND EMPLEMENT)
       |           ├── Catergory (JAVASCRIPT, HTML AND CSS)
       |           ├── Due Date
+      |           ├── status ( completed, overdue,)
       |           ├── Priority (Medium)
       |           ├── Completed
       |           ├── CreatedAt (date)
@@ -64,12 +65,13 @@ Firebase Firestore Database
       |           └── BookingId
       |           ├── LearnerId
       |           ├── LearnerName
+      |           ├── AssessorId 
       |           ├── Topic
       |           ├── Preffered Date
       |           ├── Preffered Time
       |           ├── Mode (ONLINE OR FACE TO FACE)
       |           ├── Notes
-      |           ├── Status
+      |           ├── Status ( pending, confirmed, declined, completed )
       |           ├── AssessorId
       |           ├── CreatedAT (date)
       |

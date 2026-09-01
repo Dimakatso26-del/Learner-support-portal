@@ -35,42 +35,42 @@
 
 ---
 # Installed and Configured Tools
-1. Formatter (Prettier)
-Installation:
-        npm install --save-dev prettier
+### Formatter (Prettier)
+### Installation:
+       - npm install --save-dev prettier
    
 ## Demonstration
 
 Before formatting:
-        const app=require('express')()
+       - const app=require('express')()
 
 After formatting:
-        const app = require('express')();
+       - const app = require('express')();
 Prettier successfully formats code automatically when files are saved.
 
-2. Linter (ESLint)
+### Linter (ESLint)
    
-Installation:   
-        npm install --save-dev eslint
+### Installation:   
+      -  npm install --save-dev eslint
 ## Demonstration  
 Code:
-        const message = 'Hello' 
+       - const message = 'Hello' 
 ESLint Output:
-        Missing semicolon.
+       - Missing semicolon.
  ESLint identifies syntax and style issues before deployment.
  
- 3. Framework Configuration (Express.js)
-Installation:
-        npm install express
+### Framework Configuration (Express.js)
+### Installation:
+       - npm install express
 ## Demonstration
 Run:
-        node server.js
+       - node server.js
 Output:
-        Server running on port 3000
+       - Server running on port 3000
 Browser Request:
-        http://localhost:3000
+       - http://localhost:3000
 Response:
-        SkillsTrack Student Support API
+       - SkillsTrack Student Support API
         
 Express framework installed and functioning correctly.
 

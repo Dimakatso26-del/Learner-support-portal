@@ -58,31 +58,40 @@ Code:
 ESLint Output:
 - Missing semicolon.
 - ESLint identifies syntax and style issues before deployment.
- 
-### Framework Configuration (Express.js)
-### Installation:
+
+---
+# Framework Configuration (Express.js)
+## Installation:
 - npm install express
 ## Demonstration
-## Run:
+### Run:
 - node server.js
-## Output:
+### Output:
 - Server running on port 3000
-## Browser Request:
+### Browser Request:
 - http://localhost:3000
-## Response:
+### Response:
 - SkillsTrack Student Support API
         
-- Express framework installed and functioning correctly.
+- **Express framework installed and functioning correctly.**
 
 ## Evidence of Working Environment
-|Tool               |Purpose                   |Status
-|Visual Studio Code | IDE                      |Configured
-|Node.js            |Runtime Environment       |Installed
-|Express.js         |REST API Framework        |Running
-|Prettier           |Code Formatter            |Working
-|ESLint             |Code Quality & Linting    |Working
-|VS Code Debugger   |Debugging                 |Working
-|Git                |Version Control           |Configured
+
+| **Tool**                        | **Purpose**                         | **Status**        |
+
+| Visual Studio Code              | IDE                                 | Configured        |
+
+| Node.js                         | Runtime Environment                 | Installed         |
+
+| Express.js                      | REST API Framework                  | Running           |
+
+| Prettier                        | Code Formatter                      | Working           |
+
+| ESLint                          | Code Quality & Linting              | Working           |
+
+| VS Code Debugger                | Debugging                           | Working           |
+
+| Git                             | Version Control                     | Configured        |
 
 ---
 ## STEP 6: Configure IDE Extensions

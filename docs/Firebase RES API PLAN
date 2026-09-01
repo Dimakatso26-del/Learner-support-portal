@@ -11,80 +11,149 @@ Firebase Authentication
 
 REST API Layer (Node.js + Express)
 
+StudentController
+Properties:
+
+      1 studentService
+
+Methods:
+
+registerStudent(req, res)
+loginStudent(req, res)
+getStudentProfile(req, res)
+
+TicketController
+Properties:
+
+      1 ticketService
+
+Methods:
+
+createTicket(req, res)
+getTickets(req, res)
+updateTicketStatus(req, res)
+deleteTicket(req, res)
+
+Relationship Between Classes:
+StudentController
+      |
+      v
+StudentService
+      |
+      v
+Student
+ 
+
+TicketController
+      |
+      v
+TicketService
+      |
+      v
+SupportTicket
+
++----------------+
+|     Student    |
++----------------+
+| studentId      |
+| fullName       |
+| email          |
+| course         |
++----------------+
+| createTicket() |
+| viewTickets()  |
++-------+--------+
+        |
+        | 1
+        |
+        | *
++-------v--------+
+| SupportTicket  |
++----------------+
+| ticketId       |
+| subject        |
+| description    |
+| status         |
+| priority       |
++----------------+
+| updateStatus() |
+| closeTicket()  |
++----------------+
+
+---
+
       |
       V
 
 Firebase Firestore Database
 
       |
-      ├── Learners
-      |         └── LearnerId
-      |         ├── LearnerId
-      |         ├── DisplayName
-      |         ├── Email
-      |         ├── Role
-      |         ├── Programme
-      |         ├── Phone
-      |         ├── CreatedAt (date)
-      |         ├── Last Login (date)
+      ├── Students
+      |         └── StudentId: string     
+      |         ├── DisplayName: string
+      |         ├── Email: string
+      |         ├── Role: string
+      |         ├── Programme: string
+      |         ├── Phone: number
+      |         ├── CreatedAt: date
+      |         ├── Last Login: date
       |
       ├── Assessors
-      |          └── AssessorId
-      |          ├── DisplayName
-      |          ├── Email
-      |          ├── Role
-      |          ├── Derpartment
-      |          ├── EmployeeNumber
-      |          ├── CreatedAt (date)
+      |          └── AssessorId: string
+      |          ├── DisplayName: string
+      |          ├── Email: string
+      |          ├── Role: string  
+      |          ├── EmployeeNumber: number 
+      |          ├── CreatedAt: date  
       | 
       ├── Tasks
-      |           └── TaskId
-      |           ├── LearnerId
-      |           ├── Title
-      |           ├── Description ( GET, POST AND EMPLEMENT)
-      |           ├── Catergory (JAVASCRIPT, HTML AND CSS)
-      |           ├── Due Date
-      |           ├── status ( completed, overdue,)
-      |           ├── Priority (Medium)
-      |           ├── Completed
-      |           ├── CreatedAt (date)
-      |           ├── UpdatedAt (date)
+      |           └── TaskId: string
+      |           ├── StudentId: string
+      |           ├── Title: string
+      |           ├── Description ( GET, POST AND EMPLEMENT): string
+      |           ├── Catergory (JAVASCRIPT, HTML AND CSS): string
+      |           ├── Due Date: date
+      |           ├── status ( completed, overdue,): string
+      |           ├── Priority (Medium): string
+      |           ├── Completed: string
+      |           ├── CreatedAt: date
+      |           ├── UpdatedAt: date
       |
       ├── Progress
-      |           └── ProgressId
-      |           ├── LearnerId
-      |           ├── TotalTasks
-      |           ├── CompletedTasks
-      |           ├── Outstanding Tasks
-      |           ├── Overdue Tasks
-      |           ├── Progress Percentage
-      |           ├── Average Score
-      |           ├── Last updated (date)
+      |           └── ProgressId: string
+      |           ├── StudentId: string
+      |           ├── TotalTasks: string
+      |           ├── CompletedTasks: number
+      |           ├── Outstanding Tasks: number
+      |           ├── Overdue Tasks: number
+      |           ├── Progress Percentage: number
+      |           ├── Average Score: number
+      |           ├── Last updated: date
       | 
       ├── Bookings
-      |           └── BookingId
-      |           ├── LearnerId
-      |           ├── LearnerName
-      |           ├── AssessorId 
-      |           ├── Topic
-      |           ├── Preffered Date
-      |           ├── Preffered Time
-      |           ├── Mode (ONLINE OR FACE TO FACE)
-      |           ├── Notes
-      |           ├── Status ( pending, confirmed, declined, completed )
-      |           ├── AssessorId
-      |           ├── CreatedAT (date)
+      |           └── BookingId: string
+      |           ├── StudentId: string
+      |           ├── StudentName: string
+      |           ├── AssessorId: string 
+      |           ├── Topic: string
+      |           ├── Preffered Date: date
+      |           ├── Preffered Time: date
+      |           ├── Mode (ONLINE OR FACE TO FACE): string
+      |           ├── Notes: string
+      |           ├── Status ( pending, confirmed, declined, completed ): string
+      |           ├── AssessorId: string
+      |           ├── CreatedAT: date
       |
       ├── Challenges
-      |          └── ScoreId
-      |          ├── LearnerId
-      |          ├── Game Name
-      |          ├── Score
-      |          ├── HighScore
-      |          ├── Duration Seconds
-      |          ├── Level reached
-      |          ├── CompletedAt (date)
-      |          ├── Feedback
+      |          └── ScoreId: number
+      |          ├── StudentId: string
+      |          ├── Game Name: string
+      |          ├── Score: number
+      |          ├── HighScore: number
+      |          ├── Duration Seconds: number
+      |          ├── Level reached: number
+      |          ├── CompletedAt: date
+      |          ├── Feedback: string
       |          └── 
 
 2. Firebase Services
@@ -92,8 +161,8 @@ Firebase Authentication
 
 Used for:
 
-Learner Login
-Learner Registration
+Student Login
+Student Registration
 Assessor Login
 Assessor Registration
 Password Reset
@@ -111,10 +180,10 @@ User's Collection
 
 {
   "userId": "uid123",
-  "role": "learner",
+  "role": "student",
   "firstName": "Dimakatso",
   "lastName": "Mosima",
-  "email": "learner@email.com",
+  "email": "DimakatsoMosima@email.com",
   "phone": "0661352502",
   "createdAt": "timestamp
 
@@ -133,7 +202,7 @@ Progress Collection
 
 {
   "progressId": "prog001",
-  "learnerId": "uid123",
+  "studentId": "uid123",
   "module": "Computing Fundamentals",
   "completed": 6,
   "total": 6,
@@ -145,7 +214,7 @@ Bookings Collection
 
 {
   "bookingId": "book001",
-  "learnerId": "uid123",
+  "studentId": "uid123",
   "assessorId": "uid987",
   "topic": "JavaScript Essentials",
   "date": "2026-07-20",
@@ -175,13 +244,13 @@ Base URL:
 
 5. CRUD Operations
 
-| **Object**       | **Create(POST)**                        | **Read(GET)**         | **Update(PUT)**              | **Delete(DELETE)**      |
-| **Users**        | Register new learner/assessor           | Profile fetch         | Update profile/settings      | Account deletion        |
-| **Tasks**        | Add new task	                         | Fetch learner tasks   | Mark complete/update status  | Remove task             |
-| **Progress**     | Auto-generated	                         | View progress summary | Update after task completion | N/A (system-managed)    |
-| **Bookings**     | Submit booking	                         | View bookings	       | Confirm/reschedule/decline	  | Cancel booking          |
-| **Challenges**   | System adds	                         | Fetch challenge	 | Submit answer	              | N/A                     |
-| **Leaderboard**  | Auto-update	                         | View leaderboard	 | Update XP/rank	              | N/A                     |
+| **Object**       | **Create(POST)**                      | **Read(GET)**         | **Update(PUT)**              | **Delete(DELETE)**      |
+| **Users**        | Register new learner/assessor         | Profile fetch         | Update profile/settings      | Account deletion        |
+| **Tasks**        | Add new task	                       | Fetch learner tasks   | Mark complete/update status  | Remove task             |
+| **Progress**     | Auto-generated	                       | View progress summary | Update after task completion | N/A (system-managed)    |
+| **Bookings**     | Submit booking	                       | View bookings	     | Confirm/reschedule/decline	| Cancel booking          |
+| **Challenges**   | System adds	                       | Fetch challenge	     | Submit answer	            | N/A                     |
+| **Leaderboard**  | Auto-update	                       | View leaderboard	     | Update XP/rank	            | N/A                     |
 
 
 

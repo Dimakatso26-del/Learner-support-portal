@@ -46,7 +46,7 @@ Before formatting:
 
 After formatting:
 - const app = require('express')();
-Prettier successfully formats code automatically when files are saved.
+- Prettier successfully formats code automatically when files are saved.
 
 ### Linter (ESLint)
    
@@ -57,7 +57,7 @@ Code:
 - const message = 'Hello' 
 ESLint Output:
 - Missing semicolon.
- ESLint identifies syntax and style issues before deployment.
+- ESLint identifies syntax and style issues before deployment.
  
 ### Framework Configuration (Express.js)
 ### Installation:
@@ -72,7 +72,7 @@ Browser Request:
 Response:
 - SkillsTrack Student Support API
         
-Express framework installed and functioning correctly.
+- Express framework installed and functioning correctly.
 
 ## Evidence of Working Environment
 |Tool               |Purpose                   |Status

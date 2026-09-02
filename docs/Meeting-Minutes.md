@@ -3,6 +3,11 @@
 - Dimakatso Mosima
 - Tebogo Mnguni
 - Senzokuhle Ngubane
+## ADDRESS: 13 UMGAZI STREET FLOOR 2
+## Meeting 1: 04/08/2026
+## Time: 13h00-16h30
+## Attendees: Dimakatso, Tebogo and Senzo
+## PLAN OF ACTION
 ### ADDRESS: 13 UMGAZI STREET FLOOR 2
 
 ---
@@ -18,11 +23,16 @@
 - Reviewed problem statements, centre uses separate documents for tasks and support
 - Decided to use Firebase Fire-store Database with 6 collections per file: learners, assessors, tasks, progress, bookings and challenges
 - Agreed to use Firebase Authentication for learner login page
+## DECISIONS MADE
 ### DECISIONS MADE
 - Dimakatso to draft problem statements and user stories
 - Senzokuhle to set up firebase project and authentication
 - Tebogo to research for mini game
 - Due date 10/08/2026
+## Meeting 2: 10/08/2026
+## Time: 13h00-16h30
+## Attendees: ALL PRESENT
+## PLAN OF ACTION
 
 ---
 # Meeting 2: 10/08/2026
@@ -39,6 +49,9 @@
 - Discussed OOP(OBJECT-ORIENTED PROGRAMMING) requirements- need atlist 2 classes: User class and Task class with booking class as third
 - Tebogo presented wireframes and flowcharts
 - Dimakatso presented requirements needed and user cases
+## Meeting 3: 17/08/2026
+## Time: 13h00-16h30
+## Attendees: ALL PRESENT
 
 ---
 # Meeting 3: 17/08/2026
@@ -53,6 +66,12 @@
 - Created Github repository and tested, commit and push
 - Discussed how progress will be calculated using filter(), map(), reduce() - total-Tasks, completed-Tasks, progress-percentage
 - review validation for booking form- topic and preferred date required
+## DECISIONS MADE
+- All code will use "use strict" and clear variable naming
+- No passwords will be stored in database - only firebase auth handles it
+## Meeting 4: 24/08/2026
+## Time: 13h00-16h30
+## Attendees: ALL PRESENT
 ### DECISIONS MADE
 - All code will use "use strict" and clear variable naming
 - No passwords will be stored in database - only firebase auth handles it

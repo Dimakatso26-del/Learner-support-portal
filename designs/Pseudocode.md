@@ -2,28 +2,49 @@
 
 BEGIN
 
-Display login interface
-
-    INPUT user_role
     INPUT email_address
     INPUT password
+    INPUT user_role
 
     IF credentials_are_valid(email_address, password) THEN
-        Grant access to portal
-        Redirect to role_dashboard
-    ELSE
-        Display authentication_error
+
+            IF user_role = "STUDENT" THEN
+            Redirect to STUDENT_Dashboard
+
+        ELSE IF user_role = "ASSESSOR" THEN
+            Redirect to ASSESSOR_Dashboard
+
+        ELSE
+            Display "Invalid Role"
+
+        ENDIF
+
+        ELSE
+            Display authentication_error
+        ENDIF
+
+    IF user_selects_register = TRUE THEN
+
+        IF user_role = "STUDENT" THEN
+            Redirect to STUDENT_Registration
+
+        ELSE IF user_role = "ASSESSOR" THEN
+            Redirect to ASSESSOR_Registration
+
+        ELSE
+            Display "Invalid Role"
+
+        ENDIF
+
     ENDIF
 
-    IF user_selects_register THEN
-        Redirect to registration
+END
 
-## STUDENT_REgistration
+
+## STUDENT_Registration
 
 BEGIN
-
-Collect student_details
-
+    
     INPUT first_name
     INPUT last_name
     INPUT id_number
@@ -36,51 +57,54 @@ Collect student_details
         Create learner_account
         Store learner_record
         Display registration_success
+        Provide link_to_login
     ELSE
         Display password_mismatch_error
     ENDIF
-
-    Provide link_to_login
 END
+
+
 
 ## STUDENT_Login
 
 BEGIN
-    
-    INPUT email
-    INPUT password
+    INPUT email, password
 
-    Validate credentials
+    IF credentials_are_valid(email, password) THEN
+        Redirect to STUDENT_Dashboard
+    ELSE
+        Display login_error
+    ENDIF
+END
 
-    IF valid THEN
 
 ## STUDENT_Dashboard
 
 BEGIN
     
-    Retrieve learner_profile
-    Retrieve task_statistics
+    SET total_tasks = completed_tasks + outstanding_tasks
 
-    Calculate:
-        total_tasks
-        completed_tasks
-        outstanding_tasks
-        overdue_tasks
+    SET completion_percentage =
+        (completed_tasks / total_tasks) * 100
+
+    IF overdue_tasks > 0 THEN
+        Display "Overdue Tasks Exist"
+    ENDIF
 
     Display progress_summary
 
     Retrieve recent_outstanding_tasks
 
-    FOR each task IN outstanding_tasks DO
-        Display task_details
-    ENDFOR
+    FOR each task IN recent_outstanding_tasks DO
+    
 END
+
 
 ## STUDENT_Tasks_Management
 
 BEGIN
 
-Retrieve learner_tasks
+    Retrieve learner_tasks
 
     INPUT search_keyword
     INPUT category_filter
@@ -95,29 +119,40 @@ Retrieve learner_tasks
         Offer filter_reset_option
     ENDIF
 
-    IF add_task_selected THEN
+    IF add_task_selected = TRUE THEN
         Create new_task
     ENDIF
 END
+
 
 ## STUDENT_Progress_Report
 
 BEGIN
 
-Retrieve module_results
+    Retrieve module_results
 
     FOR each module DO
+
         Calculate completion_rate
         Calculate pass_rate
-        Determine academic_status
+
+        IF pass_rate >= 50 THEN
+            academic_status = "Pass"
+        ELSE
+            academic_status = "At Risk"
+        ENDIF
+
     ENDFOR
 
     Display performance_table
 
-    IF print_requested THEN
+    IF print_requested = TRUE THEN
         Generate printable_report
     ENDIF
 END
+
+
+
 
 ## STUDENT_Support_Session_Bookings
 
@@ -128,23 +163,35 @@ BEGIN
     INPUT preferred_time
     INPUT additional_notes
 
-    Create booking_request
+    IF module_topic IS NOT EMPTY AND
+       preferred_date IS NOT EMPTY AND
+       preferred_time IS NOT EMPTY THEN
 
-    Store booking_request
+        Create booking_request
+        Store booking_request
 
-    Display booking_confirmation
+        Display booking_confirmation
+
+    ELSE
+        Display validation_error
+
+    ENDIF
 
     Retrieve previous_bookings
 
-    Display booking_history
+    IF previous_bookings_exist THEN
+        Display booking_history
+    ELSE
+        Display "No previous bookings found"
+    ENDIF
 END
 
 ## STUDENT_Coded_Game_Challenge
 
 BEGIN
-    
-    Initialize score
-    Initialize timer
+
+    SET score = 0
+    SET multiplier = 2
 
     WHILE current_question <= total_questions DO
 
@@ -154,28 +201,31 @@ BEGIN
         INPUT learner_answer
 
         IF answer_is_correct THEN
-            Increase score
-            Apply multiplier
+            score = score + (1 * multiplier)
         ENDIF
 
-        Move to next_question
+            current_question = current_question + 1
 
     ENDWHILE
 
-    Update leaderboard
+    IF score >= passing_score THEN
+        Display "Quiz Passed"
+    ELSE
+        Display "Quiz Not Passed"
+    ENDIF
 
+    Update leaderboard
     Display final_results
 END
+
 
 ## STUDENT_Settings
 
 BEGIN
-
-Display preference_options
-
+    
+    Display preference_options
     INPUT theme_selection
     INPUT display_density
-
     INPUT profile_information
 
     IF save_changes_selected THEN
@@ -192,12 +242,11 @@ Display preference_options
     ENDIF
 END
 
+
 ## ASSESSOR_Registration
 
 BEGIN
-
-Collect assessor_information
-
+   
     INPUT first_name
     INPUT last_name
     INPUT contact_number
@@ -205,57 +254,77 @@ Collect assessor_information
     INPUT password
     INPUT confirm_password
 
+    IF first_name IS NOT EMPTY AND
+        last_name IS NOT EMPTY AND
+        email IS NOT EMPTY THEN
+
     IF password = confirm_password THEN
+
         Create assessor_account
         Store assessor_record
+
+        Display registration_success
+
+        Redirect to login_page
+
+    ELSE
+        Display password_mismatch_error
+    ENDIF
+
     ELSE
         Display validation_error
     ENDIF
-
-    Redirect to login_page
 END
+
 
 ## ASSESSOR_Login
 
 BEGIN
-    
+
     INPUT email
     INPUT password
 
-    Authenticate assessor
+    IF email IS NOT EMPTY AND password IS NOT EMPTY THEN
 
-    IF authentication_successful THEN
-        Open assessor_dashboard
+        IF credentials_are_valid(email, password) THEN
+            Redirect to ASSESSOR_Dashboard
+        ELSE
+            Display login_error
+        ENDIF
+
     ELSE
-        Display login_error
+        Display validation_error
+
     ENDIF
 END
+
 
 ## ASSESSOR_Dashboard
 
 BEGIN
-    
-    Retrieve learner_statistics
-    Retrieve booking_statistics
-    Retrieve activity_log
 
-    Calculate:
-        total_learners
-        pending_bookings
-        overdue_tasks
-        average_completion_rate
+    INPUT email
+    INPUT password
 
-    Display learner_overview
+    IF email IS NOT EMPTY AND password IS NOT EMPTY THEN
 
-    Display recent_activity
+        IF credentials_are_valid(email, password) THEN
+            Redirect to ASSESSOR_Dashboard
+        ELSE
+            Display login_error
+        ENDIF
 
-    Display upcoming_support_sessions
+    ELSE
+        Display validation_error
+
+    ENDIF
 END
+
 
 ## ASSESSOR_TASKS_MANAGEMENT_FOR_STUDENTS
 
 BEGIN
-    
+
     Retrieve learner_records
 
     INPUT search_term
@@ -263,32 +332,46 @@ BEGIN
 
     Filter learner_list
 
-    FOR each learner IN filtered_list DO
-        Display learner_information
-        Display completion_statistics
-    ENDFOR
+    IF filtered_list IS NOT EMPTY THEN
 
-    IF profile_selected THEN
+        FOR each learner IN filtered_list DO
+
+            Calculate completion_percentage
+
+            Display learner_information
+            Display completion_statistics
+
+        ENDFOR
+
+    ELSE
+        Display "No learners found"
+    ENDIF
+
+    IF profile_selected = TRUE THEN
         Open learner_profile
     ENDIF
 
     Support pagination_navigation
+
 END
+
 
 ## ASSESSOR_Bookings_Management
 
 BEGIN
-    
+
     Retrieve all_bookings
 
     INPUT status_filter
     INPUT date_range
 
+    Filter bookings using status_filter and date_range
+
     Display filtered_bookings
 
-    FOR each booking DO
+    FOR each booking IN filtered_bookings DO
 
-        IF booking_status = pending THEN
+        IF booking_status = "pending" THEN
             Allow confirm_action
             Allow decline_action
         ENDIF
@@ -298,7 +381,11 @@ BEGIN
 
     ENDFOR
 
+    Calculate pending_booking_count
+    Calculate confirmed_booking_count
+
     Update booking_statuses
+
 END
 
 ## ASSESSOR_Settings
@@ -306,11 +393,9 @@ END
 BEGIN
     
     Display assessor_preferences
-
     INPUT theme_preference
     INPUT notification_preferences
     INPUT default_landing_view
-
     INPUT profile_information
 
     IF save_changes_selected THEN
@@ -323,16 +408,21 @@ BEGIN
     ENDIF
 END
 
+
 ## Portal's_End_State
 
 BEGIN
-    
-    Terminate current_process
 
-    Save outstanding_changes
+    IF unsaved_changes_exist THEN
+        Save outstanding_changes
+    ENDIF
+
+    Terminate current_process
 
     Release allocated_resources
 
     End user_interaction
+
 END
+
 

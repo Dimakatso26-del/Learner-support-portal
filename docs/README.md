@@ -1,4 +1,4 @@
-# SkillsTrack Learner Support Portal
+# SkillsTrack Student Support Portal
 
 ## Project Overview
 
@@ -201,7 +201,7 @@ Features include:
 
 - Timed assessments.
 - Question progression.
-- XP scoring.
+- Scores.
 - Multipliers.
 - Leaderboards.
 - High-score tracking.
@@ -352,7 +352,6 @@ Administrative views include:
 - HTML5
 - CSS3
 - JavaScript
-- React
 
 ### Backend
 
@@ -360,7 +359,6 @@ Administrative views include:
 
 ### Database
 
-- MySQL
 - Firebase API
 
 ### Authentication

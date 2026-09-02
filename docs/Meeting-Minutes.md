@@ -8,6 +8,14 @@
 ## Time: 13h00-16h30
 ## Attendees: Dimakatso, Tebogo and Senzo
 ## PLAN OF ACTION
+### ADDRESS: 13 UMGAZI STREET FLOOR 2
+
+---
+# Meeting 1: 04/08/2026
+## Time: 13h00-16h30
+### Attendees: Dimakatso, Tebogo and Senzo
+---
+# PLAN OF ACTION
 - Understanding Project brief
 - Allocation of roles
 - Database Structure
@@ -16,6 +24,7 @@
 - Decided to use Firebase Fire-store Database with 6 collections per file: learners, assessors, tasks, progress, bookings and challenges
 - Agreed to use Firebase Authentication for learner login page
 ## DECISIONS MADE
+### DECISIONS MADE
 - Dimakatso to draft problem statements and user stories
 - Senzokuhle to set up firebase project and authentication
 - Tebogo to research for mini game
@@ -24,6 +33,13 @@
 ## Time: 13h00-16h30
 ## Attendees: ALL PRESENT
 ## PLAN OF ACTION
+
+---
+# Meeting 2: 10/08/2026
+## Time: 13h00-16h30
+### Attendees: ALL PRESENT
+
+# PLAN OF ACTION
 - Review firebase setup
 - Database fields finalised
 - class design
@@ -36,6 +52,12 @@
 ## Meeting 3: 17/08/2026
 ## Time: 13h00-16h30
 ## Attendees: ALL PRESENT
+
+---
+# Meeting 3: 17/08/2026
+## Time: 13h00-16h30
+### Attendees: ALL PRESENT
+
 ## PLAN OF ACTION
 - Github Setup
 - Progress calculation logic
@@ -50,6 +72,15 @@
 ## Meeting 4: 24/08/2026
 ## Time: 13h00-16h30
 ## Attendees: ALL PRESENT
+### DECISIONS MADE
+- All code will use "use strict" and clear variable naming
+- No passwords will be stored in database - only firebase auth handles it
+
+---
+# Meeting 4: 24/08/2026
+## Time: 13h00-16h30
+### Attendees: ALL PRESENT
+
 ## PLAN OF ACTION
 - Final submission check
 - Readiness for Project
@@ -58,7 +89,10 @@
 - prepared for oral review: each member can explain their section
 ## DECISIONS MADE
 - project ready for month 1
+
+---
 ## Signed off by:
 ## DIMAKATSO: 28/08/2026
 ## SENZOKUHLE: 28/08/2026
 ## TEBOGO: 28/08/2026
+

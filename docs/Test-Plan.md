@@ -76,5 +76,22 @@ Usability Testing
 Security Testing
 - Login, password handling, and role-based access are secure.  
 Performance Testing
-- Dashboard loads quickly even with many learners/tasks.  
+- Dashboard loads quickly even with many learners/tasks.
+
+---
+
+# Testing and Debugging evidence 
+
+## | Issue                                         | Tool Used                | Cause                  | Correction                        | Result  |
+
+   | 1. Registration accepted mismatched passwords | Chrome DevTools, Console | Incorrect operator (=) | if (password === confirmPassword) | Fixed   |
+
+   | 2. Learner search returned no results         | VS Code Debugger         | Case-sensitive search  | learner.name
+  .toLowerCase()
+  .includes(searchTerm.toLowerCase()); | Fixed  |
+  
+   | 3. Progress showed NaN%                       | Debugger, Console        | String-to-number conversion issue | const completionRate =
+   (completedTasks / totalTasks) * 100; | Fixed | 
+
+ 
 

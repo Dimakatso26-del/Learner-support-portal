@@ -1,4 +1,4 @@
-# SkillsTrack Learner Support Portal
+# SkillsTrack Student Support Portal
 
 ## Project Overview
 
@@ -201,7 +201,7 @@ Features include:
 
 - Timed assessments.
 - Question progression.
-- XP scoring.
+- Scores.
 - Multipliers.
 - Leaderboards.
 - High-score tracking.

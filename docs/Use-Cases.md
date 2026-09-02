@@ -38,3 +38,42 @@ Example: Dashboard shows “AVERAGE COMPLETION 72%,” guiding intervention stra
 ## Notifications & Preferences  
 Assessors configure alerts for late submissions, new bookings, or weekly digests.
 Example: Londeka enables email notifications for overdue tasks.
+
+---
+
+# Cookie Preference Banner
+
+- Display a banner when the user first visits the application:
+
+--------------------------------------------------
+ We use cookies to improve your experience.
+
+ [Accept Cookies]  [Reject Non-Essential Cookies]
+--------------------------------------------------
+
+## Pseudocode:
+
+BEGIN:
+
+    IF cookie_preference_not_set THEN
+        Display cookie_banner
+    ENDIF
+    
+    IF accept_selected THEN
+      Save cookie_preference = "accepted"
+      Hide cookie_banner
+    ENDIF
+
+    IF reject_selected THEN
+        Save cookie_preference = "rejected"
+        Hide cookie_banner
+    ENDIF
+END
+
+## JavaScript code:
+
+    acceptBtn.addEventListener("click", () => {
+      document.cookie =
+        "cookiePreference=accepted; max-age=31536000";
+    });
+

@@ -23,4 +23,6 @@
 - SkillsTrack Programmer SP, Component 1. Provided by SkillsTrack Training Centre.
 - SkillsTrack Programmer SP Initiation Activity. Provided by SkillsTrack Training Centre.
 - Mission Binary Unlock Challenge. Provided by SkillsTrack Training Centre.
+---
+### NB: For detailed user stories with applicable requirements, refer to Requirements.md file.
 

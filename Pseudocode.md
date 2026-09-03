@@ -96,7 +96,9 @@ BEGIN
     Retrieve recent_outstanding_tasks
 
     FOR each task IN recent_outstanding_tasks DO
-    
+        Display task_summary_card(task)
+    ENDFOR
+
 END
 
 
@@ -303,21 +305,26 @@ END
 
 BEGIN
 
-    INPUT email
-    INPUT password
+    Retrieve total_learners
+    Retrieve pending_bookings
+    Retrieve confirmed_bookings
 
-    IF email IS NOT EMPTY AND password IS NOT EMPTY THEN
+    SET total_bookings = pending_bookings + confirmed_bookings
 
-        IF credentials_are_valid(email, password) THEN
-            Redirect to ASSESSOR_Dashboard
-        ELSE
-            Display login_error
-        ENDIF
+    Display learner_summary
+    Display pending_bookings_count
+    Display confirmed_bookings_count
 
-    ELSE
-        Display validation_error
+    Retrieve recent_learner_activity
 
+    FOR each activity IN recent_learner_activity DO
+        Display activity_summary_card(activity)
+    ENDFOR
+
+    IF pending_bookings > 0 THEN
+        Display "Bookings Require Action"
     ENDIF
+
 END
 
 
@@ -424,5 +431,6 @@ BEGIN
     End user_interaction
 
 END
+
 
 

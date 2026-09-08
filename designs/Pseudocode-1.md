@@ -194,6 +194,9 @@ BEGIN
 
     SET score = 0
     SET multiplier = 2
+    SET current_question = 1
+    SET total_questions = 3
+    SET passing_score = 4
 
     WHILE current_question <= total_questions DO
 
@@ -431,6 +434,3 @@ BEGIN
     End user_interaction
 
 END
-
-
-

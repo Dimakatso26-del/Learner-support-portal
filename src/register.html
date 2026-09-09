@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register — SkillsTrack Learner Support Portal</title>
+</head>
+<body>
+
+  <header>
+    <h1>SKILLSTRACK LEARNER SUPPORT PORTAL</h1>
+  </header>
+
+  <main>
+    <h2>Create your account</h2>
+
+    <button type="button" id="showStudentForm">STUDENT</button>
+    <button type="button" id="showAssessorForm">ASSESSOR</button>
+
+    <form id="studentRegisterForm">
+      <h3>STUDENT</h3>
+
+      <label for="firstName">FIRST NAME</label>
+      <input type="text" id="firstName" required />
+
+      <label for="lastName">LAST NAME</label>
+      <input type="text" id="lastName" required />
+
+      <label for="idNumber">ID NUMBER (STUDENTS ONLY)</label>
+      <input type="text" id="idNumber" required />
+
+      <label for="contactNumber">CONTACT NUMBER (STUDENTS ONLY)</label>
+      <input type="text" id="contactNumber" required />
+
+      <label for="email">EMAIL ADDRESS</label>
+      <input type="email" id="email" required />
+
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" required />
+
+      <label for="confirmPassword">CONFIRM PASSWORD</label>
+      <input type="password" id="confirmPassword" required />
+
+      <p id="registerError" style="color: red;"></p>
+
+      <button type="submit">REGISTER</button>
+    </form>
+
+    <form id="assessorRegisterForm" style="display: none;">
+      <h3>ASSESSOR</h3>
+
+      <label for="assessorFirstName">ASSESSOR NAME</label>
+      <input type="text" id="assessorFirstName" required />
+
+      <label for="assessorLastName">ASSESSOR LAST NAME</label>
+      <input type="text" id="assessorLastName" required />
+
+      <label for="assessorContactNumber">CONTACT NUMBER</label>
+      <input type="text" id="assessorContactNumber" />
+
+      <label for="assessorRegEmail">EMAIL ADDRESS</label>
+      <input type="email" id="assessorRegEmail" required />
+
+      <label for="assessorRegPassword">PASSWORD</label>
+      <input type="password" id="assessorRegPassword" required />
+
+      <label for="assessorRegConfirmPassword">CONFIRM PASSWORD</label>
+      <input type="password" id="assessorRegConfirmPassword" required />
+
+      <p id="assessorRegisterError" style="color: red;"></p>
+
+      <button type="submit">REGISTER</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Sign In</a></p>
+  </main>
+
+  <script>
+    document.getElementById("showStudentForm").addEventListener("click", () => {
+      document.getElementById("studentRegisterForm").style.display = "block";
+      document.getElementById("assessorRegisterForm").style.display = "none";
+    });
+    document.getElementById("showAssessorForm").addEventListener("click", () => {
+      document.getElementById("studentRegisterForm").style.display = "none";
+      document.getElementById("assessorRegisterForm").style.display = "block";
+    });
+  </script>
+
+  <script type="module" src="register.js"></script>
+
+</body>
+</html>

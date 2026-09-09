@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign In — SkillsTrack Learner Support Portal</title>
+</head>
+<body>
+
+  <header>
+    <h1>SKILLSTRACK LEARNER SUPPORT PORTAL</h1>
+  </header>
+
+  <main>
+    <h2>Sign in to portal</h2>
+
+    <button type="button" id="showStudentLogin">STUDENT</button>
+    <button type="button" id="showAssessorLogin">ASSESSOR</button>
+
+    <form id="studentLoginForm">
+      <h3>STUDENT</h3>
+
+      <label for="studentEmail">EMAIL ADDRESS</label>
+      <input type="email" id="studentEmail" required />
+
+      <label for="studentPassword">PASSWORD</label>
+      <input type="password" id="studentPassword" required />
+
+      <p id="studentLoginError" style="color: red;"></p>
+
+      <button type="submit">SIGN IN</button>
+    </form>
+
+    <form id="assessorLoginForm" style="display: none;">
+      <h3>ASSESSOR</h3>
+
+      <label for="assessorEmail">EMAIL ADDRESS</label>
+      <input type="email" id="assessorEmail" required />
+
+      <label for="assessorPassword">PASSWORD</label>
+      <input type="password" id="assessorPassword" required />
+
+      <p id="assessorLoginError" style="color: red;"></p>
+
+      <button type="submit">SIGN IN</button>
+    </form>
+
+    <p>New to SkillsTrack? <a href="register.html">Register now</a></p>
+  </main>
+
+  <script>
+    document.getElementById("showStudentLogin").addEventListener("click", () => {
+      document.getElementById("studentLoginForm").style.display = "block";
+      document.getElementById("assessorLoginForm").style.display = "none";
+    });
+    document.getElementById("showAssessorLogin").addEventListener("click", () => {
+      document.getElementById("studentLoginForm").style.display = "none";
+      document.getElementById("assessorLoginForm").style.display = "block";
+    });
+  </script>
+
+  <script type="module" src="login.js"></script>
+
+</body>
+</html>

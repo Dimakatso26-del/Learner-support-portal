@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <a class="brand" href="#"><span>▦</span> SKILLSTRACK STUDENT SUPPORT PORTAL</a>
+
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Tasks</a>
+        <a href="#">Support</a>
+        <a href="#">Game</a>
+        <a class="active" href="#">Settings</a>
+      </nav>
+
+      <div class="account">
+        <b>Dimakatso student</b>
+        <i></i>
+        <button>Sign Out</button>
+      </div>
+    </header>
+
+    <main>
+      <h1>Settings</h1>
+      <p class="lead">
+        Manage your student portal accessibility preferences, appearance,
+        and account information.
+      </p>
+
+      <div class="settings-grid">
+        <section class="card">
+          <h2>Portal Preferences</h2>
+          <hr>
+
+          <h3>THEME APPEARANCE</h3>
+          <div class="theme-options">
+            <button class="selected">Light Mode</button>
+            <button>Dark Mode</button>
+          </div>
+
+          <h3>DISPLAY FONT WEIGHT</h3>
+
+          <label class="radio">
+            <input type="radio" name="font-weight" checked>
+            <span>Comfortable regular text</span>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="font-weight">
+            <span>Enhanced visual emphasis</span>
+          </label>
+
+          <hr>
+          <button class="clear-button">Clear Preferences</button>
+        </section>
+
+        <section class="card">
+          <h2>Account Information</h2>
+          <hr>
+
+          <form>
+            <label for="name">FULL PROFILE NAME</label>
+            <input id="name" type="text" value="Dimakatso Mosima">
+
+            <label for="email">REGISTERED EMAIL ADDRESS</label>
+            <input
+              id="email"
+              type="email"
+              value="DimakatsoMosima@tpcstudents.co.za"
+            >
+
+            <hr>
+
+            <button class="save-button" type="submit">SAVE CHANGES</button>
+            <button class="danger-button" type="button">DELETE ACCOUNT</button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

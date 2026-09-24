@@ -40,33 +40,3 @@ Thumbs.db
 # JetBrains IDEs
 .idea/
 
-# Temporary files
-tmp/
-temp/
-
-# ESLint cache
-.eslintcache
-
-# Prettier cache
-.prettier-cache
-
-# Package lock (optional, keep if your team tracks it)
-# package-lock.json
-
-
-- node_modules/ prevents thousands of installed packages from being uploaded to GitHub.
-- .env protects sensitive information such as database connection strings and API keys.
-- coverage/ excludes test coverage reports.
-- .vscode/ and .idea/ exclude personal IDE settings.
-- *.log prevents log files from cluttering the repository.
-- dist/ and build/ exclude generated application files.
-
-Evidence for Report:
-
-1. .gitignore file in the GitHub repository.
-2. node_modules not appearing in the repository.
-3. .env excluded from commits.
-4. A commit message such as:
-                Add .gitignore and repository configuration
-
-This demonstrates proper Git repository management practices for the SkillsTrack Student Support project

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack Support</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <a class="brand">
+        <span>▦</span>
+        SKILLSTRACK STUDENT SUPPORT PORTAL
+      </a>
+
+      <nav>
+        <a>Dashboard</a>
+        <a>Tasks</a>
+        <a class="active">Support</a>
+        <a>Game</a>
+        <a>Settings</a>
+      </nav>
+
+      <div class="account">
+        <b>Dimakatso student</b>
+        <i></i>
+        <button>Sign Out</button>
+      </div>
+    </header>
+
+    <main>
+      <h1>Book Support Session</h1>
+      <p class="lead">
+        One-on-one scheduled contact session with the Assessor
+      </p>
+
+      <div class="columns">
+        <form>
+          <h2>New Booking Request</h2>
+          <hr>
+
+          <label for="module">SUBJECT / TOPIC / MODULE</label>
+          <select id="module">
+            <option>4. Coding Basics with JavaScript</option>
+          </select>
+
+          <label for="date">PREFERRED DATE</label>
+          <input id="date" type="date" value="2026-07-22">
+
+          <label for="time">PREFERRED TIME</label>
+          <select id="time">
+            <option>e.g. 14:00</option>
+          </select>
+
+          <label for="notes">ADDITIONAL NOTES</label>
+          <textarea
+            id="notes"
+            placeholder="Describe what you need help with..."
+          ></textarea>
+
+          <button type="submit">SUBMIT BOOKING</button>
+        </form>
+
+        <section>
+          <h2>My Bookings</h2>
+
+          <div class="booking head">
+            <b>TOPIC</b>
+            <b>DATE &amp; TIME</b>
+            <b>STATUS</b>
+          </div>
+
+          <div class="booking">
+            <span>JavaScript Essentials</span>
+            <span>23 JULY 26 · 12:00</span>
+            <em>CONFIRMED</em>
+          </div>
+
+          <div class="booking">
+            <span>Arrays and Data Structures</span>
+            <span>31 JULY 26 · 10:00</span>
+            <em>PENDING</em>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

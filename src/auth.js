@@ -5,8 +5,13 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
-} from "firebase/auth";
-import { getDatabase, ref, set, get } from "firebase/database";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getDatabase,
+  ref,
+  set,
+  get
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const auth = getAuth(app);
 const db = getDatabase(app);

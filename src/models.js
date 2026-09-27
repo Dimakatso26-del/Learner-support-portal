@@ -1,3 +1,5 @@
+import { AppError } from "./errors.js";
+
 export class User {
   constructor(uid, firstName, lastName, email, role) {
     this.uid = uid;
@@ -31,6 +33,9 @@ export class Learner extends User {
   }
 
   addTask(task) {
+    if (!(task instanceof Task)) {
+      throw new AppError("addTask expects a Task instance.", "validation/invalid-task");
+    }
     this.tasks.push(task);
   }
 
@@ -73,6 +78,9 @@ export class Assessor extends User {
   }
 
   assignLearner(learner) {
+    if (!(learner instanceof Learner)) {
+      throw new AppError("assignLearner expects a Learner instance.", "validation/invalid-learner");
+    }
     this.assignedLearners.push(learner);
   }
 
@@ -96,6 +104,13 @@ export class Assessor extends User {
 
 export class Task {
   constructor(id, userId, title, category, dueDate, priority = "medium") {
+    if (!title || !title.trim()) {
+      throw new AppError("A task title is required.", "validation/missing-title");
+    }
+    if (!dueDate || isNaN(new Date(dueDate).getTime())) {
+      throw new AppError("A valid due date is required.", "validation/invalid-due-date");
+    }
+
     this.id = id;
     this.userId = userId;
     this.title = title;
@@ -133,6 +148,10 @@ export class Task {
 }
 
 export function createUserFromProfile(uid, profile) {
+  if (!profile || !profile.role) {
+    throw new AppError("Cannot create user: profile data is missing or incomplete.", "validation/missing-profile");
+  }
+
   if (profile.role === "STUDENT") {
     return new Learner(
       uid,
@@ -154,5 +173,5 @@ export function createUserFromProfile(uid, profile) {
     );
   }
 
-  throw new Error(`Unknown role: ${profile.role}`);
+  throw new AppError(`Unknown role: ${profile.role}`, "validation/unknown-role");
 }

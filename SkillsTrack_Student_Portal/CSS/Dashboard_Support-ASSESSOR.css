@@ -1,0 +1,144 @@
+/* --- Global Styles --- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333333;
+  padding: 24px;
+}
+
+/* --- Typography --- */
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* --- Metrics Row --- */
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #757575;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* --- Main Layout Grid --- */
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- Section Cards --- */
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* --- Data Tables --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+th {
+  background-color: #f1f3f5;
+  color: #495057;
+  font-weight: 600;
+  padding: 10px 12px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eeeeee;
+  color: #212529;
+}
+
+/* --- Status Badges --- */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.badge.on-track { color: #2b8a3e; background-color: #ebfbee; }
+.badge.at-risk  { color: #c92a2a; background-color: #fff5f5; }
+.badge.confirmed{ color: #1c7ed6; background-color: #e7f5ff; }
+.badge.pending  { color: #d9480f; background-color: #fff4e6; }
+
+/* --- Recent Activity Feed --- */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #495057;
+}
+
+.activity-item strong {
+  color: #212529;
+}
+
+.activity-time {
+  display: block;
+  font-size: 11px;
+  color: #868e96;
+  margin-top: 2px;
+}
+

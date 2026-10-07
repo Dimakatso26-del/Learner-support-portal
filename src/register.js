@@ -1,4 +1,12 @@
 import { registerUser } from "./auth.js";
+import {
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateIdNumber,
+  validateContactNumber,
+  validatePasswordsMatch
+} from "./validation.js";
 
 const studentForm = document.getElementById("studentRegisterForm");
 if (studentForm) {
@@ -15,6 +23,20 @@ if (studentForm) {
 
     const errorBox = document.getElementById("registerError");
     errorBox.textContent = "";
+
+    const validationError =
+      validateName(firstName, "First name") ||
+      validateName(lastName, "Last name") ||
+      validateIdNumber(idNumber) ||
+      validateContactNumber(contactNumber) ||
+      validateEmail(email) ||
+      validatePassword(password) ||
+      validatePasswordsMatch(password, confirmPassword);
+
+    if (validationError) {
+      errorBox.textContent = validationError;
+      return;
+    }
 
     try {
       await registerUser(
@@ -52,8 +74,16 @@ if (assessorForm) {
     const errorBox = document.getElementById("assessorRegisterError");
     errorBox.textContent = "";
 
-    if (!firstName || !lastName || !email) {
-      errorBox.textContent = "First name, last name, and email are required.";
+    const validationError =
+      validateName(firstName, "First name") ||
+      validateName(lastName, "Last name") ||
+      validateContactNumber(contactNumber) ||
+      validateEmail(email) ||
+      validatePassword(password) ||
+      validatePasswordsMatch(password, confirmPassword);
+
+    if (validationError) {
+      errorBox.textContent = validationError;
       return;
     }
 

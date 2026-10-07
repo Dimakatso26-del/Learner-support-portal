@@ -2,59 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign In — SkillsTrack Learner Support Portal</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page">
 
-  <header>
-    <h1>SKILLSTRACK LEARNER SUPPORT PORTAL</h1>
-  </header>
+  <main class="auth-card">
+    <header class="card-header">
+      <span class="brand-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="12" height="4" rx="1"></rect>
+          <rect x="2" y="8" width="5" height="6" rx="1"></rect>
+          <rect x="9" y="8" width="5" height="6" rx="1"></rect>
+        </svg>
+      </span>
+      <span class="brand">SKILLSTRACK LEARNER SUPPORT PORTAL</span>
+    </header>
 
-  <main>
-    <h2>Sign in to portal</h2>
+    <h1 class="card-title">Sign in to portal</h1>
 
-    <button type="button" id="showStudentLogin">STUDENT</button>
-    <button type="button" id="showAssessorLogin">ASSESSOR</button>
+    <div class="role-tabs">
+      <button type="button" id="showStudentLogin" class="role-tab active">STUDENT</button>
+      <button type="button" id="showAssessorLogin" class="role-tab">ASSESSOR</button>
+    </div>
 
-    <form id="studentLoginForm">
-      <h3>STUDENT</h3>
+    <form id="studentLoginForm" class="auth-form">
+      <div class="form-group">
+        <label for="studentEmail">Email address</label>
+        <input type="email" id="studentEmail" required />
+      </div>
 
-      <label for="studentEmail">EMAIL ADDRESS</label>
-      <input type="email" id="studentEmail" required />
+      <div class="form-group">
+        <label for="studentPassword">Password</label>
+        <input type="password" id="studentPassword" required />
+      </div>
 
-      <label for="studentPassword">PASSWORD</label>
-      <input type="password" id="studentPassword" required />
+      <p id="studentLoginError" class="form-error"></p>
 
-      <p id="studentLoginError" style="color: red;"></p>
-
-      <button type="submit">SIGN IN</button>
+      <button type="submit" class="btn-primary">SIGN IN</button>
     </form>
 
-    <form id="assessorLoginForm" style="display: none;">
-      <h3>ASSESSOR</h3>
+    <form id="assessorLoginForm" class="auth-form" style="display: none;">
+      <div class="form-group">
+        <label for="assessorEmail">Email address</label>
+        <input type="email" id="assessorEmail" required />
+      </div>
 
-      <label for="assessorEmail">EMAIL ADDRESS</label>
-      <input type="email" id="assessorEmail" required />
+      <div class="form-group">
+        <label for="assessorPassword">Password</label>
+        <input type="password" id="assessorPassword" required />
+      </div>
 
-      <label for="assessorPassword">PASSWORD</label>
-      <input type="password" id="assessorPassword" required />
+      <p id="assessorLoginError" class="form-error"></p>
 
-      <p id="assessorLoginError" style="color: red;"></p>
-
-      <button type="submit">SIGN IN</button>
+      <button type="submit" class="btn-primary">SIGN IN</button>
     </form>
 
-    <p>New to SkillsTrack? <a href="register.html">Register now</a></p>
+    <p class="card-footer">New to SkillsTrack? <a href="register.html">Register now</a></p>
   </main>
 
   <script>
-    document.getElementById("showStudentLogin").addEventListener("click", () => {
-      document.getElementById("studentLoginForm").style.display = "block";
-      document.getElementById("assessorLoginForm").style.display = "none";
+    const studentTab = document.getElementById("showStudentLogin");
+    const assessorTab = document.getElementById("showAssessorLogin");
+    const studentForm = document.getElementById("studentLoginForm");
+    const assessorForm = document.getElementById("assessorLoginForm");
+
+    studentTab.addEventListener("click", () => {
+      studentForm.style.display = "block";
+      assessorForm.style.display = "none";
+      studentTab.classList.add("active");
+      assessorTab.classList.remove("active");
     });
-    document.getElementById("showAssessorLogin").addEventListener("click", () => {
-      document.getElementById("studentLoginForm").style.display = "none";
-      document.getElementById("assessorLoginForm").style.display = "block";
+
+    assessorTab.addEventListener("click", () => {
+      studentForm.style.display = "none";
+      assessorForm.style.display = "block";
+      assessorTab.classList.add("active");
+      studentTab.classList.remove("active");
     });
   </script>
 

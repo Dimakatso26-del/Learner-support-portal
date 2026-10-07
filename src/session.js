@@ -1,5 +1,5 @@
 import { logoutUser, watchAuthState, db } from "./auth.js";
-import { ref, get } from "firebase/database";
+import { ref, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const signOutButton = document.getElementById("signOutButton");
 if (signOutButton) {

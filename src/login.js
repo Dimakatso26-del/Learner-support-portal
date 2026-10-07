@@ -17,7 +17,7 @@ if (studentLoginForm) {
 
     try {
       await loginUser(email, password, "STUDENT");
-      window.location.href = "student-dashboard.html";
+      window.location.href = "../SkillsTrack_Student_Portal/Dashboard-STUDENT.html";
     } catch (error) {
       errorBox.textContent = error.message;
     }
@@ -41,7 +41,7 @@ if (assessorLoginForm) {
 
     try {
       await loginUser(email, password, "ASSESSOR");
-      window.location.href = "assessor-dashboard.html";
+      window.location.href = "../SkillsTrack_Student_Portal/Dashboard_Support-ASSESSOR.html";
     } catch (error) {
       errorBox.textContent = error.message;
     }

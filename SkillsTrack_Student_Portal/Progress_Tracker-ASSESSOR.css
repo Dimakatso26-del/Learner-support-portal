@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333333;
+  padding-bottom: 40px;
+}
+
+/* --- Shared Navigation Bar Layout --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px 40px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: #000000;
+  font-weight: 700;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 4px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.btn-signout {
+  background: none;
+  border: 1px solid #cccccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* --- Page Structural Rules --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* --- Search Field & Form Row Elements --- */
+.controls-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  flex-grow: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+select {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 13px;
+  min-width: 160px;
+  cursor: pointer;
+}
+
+/* --- Student Table Layout Styles --- */
+.table-container {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f3f5;
+  color: #495057;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.text-email {
+  color: #868e96;
+}
+
+/* --- Custom Status Pill Elements --- */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.badge.status-track { color: #212529; background-color: #ffffff; border-color: #212529; }
+.badge.status-risk  { color: #666666; background-color: #ffffff; border-color: #cccccc; }
+
+/* --- Table Action Buttons --- */
+.btn-profile {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #cccccc;
+  color: #212529;
+  font-weight: 500;
+}
+
+/* --- Bottom Table Pagination Footers --- */
+.pagination-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-size: 13px;
+  color: #666666;
+  background-color: #ffffff;
+  border-top: 1px solid #eeeeee;
+}
+
+.pagination-pages {
+  display: flex;
+  gap: 4px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #212529;
+}
+
+.page-link.active {
+  background-color: #212529;
+  color: #ffffff;
+  border-color: #212529;
+}

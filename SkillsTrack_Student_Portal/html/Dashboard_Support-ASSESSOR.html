@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Support Portal Dashboard</title>
+  <link rel="stylesheet" href="../CSS/Dashboard_Support-ASSESSOR.css">
+</head>
+
+<scrit type="module" src="../CSS/Dashboard_Support-ASSESSOR.css"></script>
+
+<body>
+
+  <header>
+    <h1>Welcome back, Londeka</h1>
+    <p class="subtitle">SkillsTrack Student Support Portal Assessor & Admin Dashboard</p>
+  </header>
+
+  <section class="metrics-container">
+    <div class="metric-card">
+      <div class="metric-label">Total Students</div>
+      <div class="metric-value">24</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Pending Bookings</div>
+      <div class="metric-value">6</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Overdue Tasks</div>
+      <div class="metric-value">8</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Average Completion</div>
+      <div class="metric-value">72%</div>
+    </div>
+  </section>
+
+  <main class="main-grid">
+    
+   <div class="left-column">
+    
+      <section class="card">
+        <h2 class="card-title">Student Overview</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Completed</th>
+              <th>Outstanding</th>
+              <th>Completion %</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dimakatso Mosima</strong></td>
+              <td>12 / 18</td>
+              <td>4</td>
+              <td>66%</td>
+              <td><span class="badge on-track">On Track</span></td>
+            </tr>
+            <tr>
+              <td><strong>Senzokuhle Ngubane</strong></td>
+              <td>15 / 18</td>
+              <td>2</td>
+              <td>83%</td>
+              <td><span class="badge on-track">On Track</span></td>
+            </tr>
+            <tr>
+              <td><strong>Blessing Manhique</strong></td>
+              <td>8 / 18</td>
+              <td>8</td>
+              <td>44%</td>
+              <td><span class="badge at-risk">At Risk</span></td>
+            </tr>
+            <tr>
+              <td><strong>Tebogo Mnguni</strong></td>
+              <td>8 / 18</td>
+              <td>8</td>
+              <td>44%</td>
+              <td><span class="badge at-risk">At Risk</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">Upcoming Support Sessions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Topic</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Blessing Manhique</strong></td>
+              <td>Coding basics with Javascript</td>
+              <td>Today</td>
+              <td>14:00</td>
+              <td><span class="badge confirmed">Confirmed</span></td>
+            </tr>
+            <tr>
+              <td><strong>Senzokuhle Ngubane</strong></td>
+              <td>Thinking like a programmer</td>
+              <td>Tomorrow</td>
+              <td>10:30</td>
+              <td><span class="badge pending">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+
+    <aside class="card">
+      <h2 class="card-title">Recent Activity</h2>
+      <div class="activity-list">
+        <div class="activity-item">
+          <strong>Dimakatso Mosima</strong> submitted Module 3 task
+          <span class="activity-time">10 min ago</span>
+        </div>
+        <div class="activity-item">
+          <strong>Blessing Manhique</strong> booked a support session
+          <span class="activity-time">1 hour ago</span>
+        </div>
+        <div class="activity-item">
+          <strong>Senzokuhle Ngubane</strong> requested review for Task 4
+          <span class="activity-time">Yesterday</span>
+
+          <span id="totalStudents">0</span>
+          <span id="pendingBookings">0</span>
+          <span id="confirmedBookings">0</span>
+
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+</body>
+</html>

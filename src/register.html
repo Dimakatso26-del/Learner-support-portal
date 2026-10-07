@@ -4,86 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register — SkillsTrack Learner Support Portal</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page">
 
-  <header>
-    <h1>SKILLSTRACK LEARNER SUPPORT PORTAL</h1>
-  </header>
+  <main class="auth-card">
+    <header class="card-header">
+      <span class="brand-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="12" height="4" rx="1"></rect>
+          <rect x="2" y="8" width="5" height="6" rx="1"></rect>
+          <rect x="9" y="8" width="5" height="6" rx="1"></rect>
+        </svg>
+      </span>
+      <span class="brand">SKILLSTRACK LEARNER SUPPORT PORTAL</span>
+    </header>
 
-  <main>
-    <h2>Create your account</h2>
+    <h1 class="card-title">Create your account</h1>
 
-    <button type="button" id="showStudentForm">STUDENT</button>
-    <button type="button" id="showAssessorForm">ASSESSOR</button>
+    <div class="role-tabs">
+      <button type="button" id="showStudentForm" class="role-tab active">STUDENT</button>
+      <button type="button" id="showAssessorForm" class="role-tab">ASSESSOR</button>
+    </div>
 
-    <form id="studentRegisterForm">
-      <h3>STUDENT</h3>
+    <form id="studentRegisterForm" class="auth-form">
+      <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" required />
+      </div>
 
-      <label for="firstName">FIRST NAME</label>
-      <input type="text" id="firstName" required />
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" required />
+      </div>
 
-      <label for="lastName">LAST NAME</label>
-      <input type="text" id="lastName" required />
+      <div class="form-group">
+        <label for="idNumber">ID number (students only)</label>
+        <input type="text" id="idNumber" required />
+      </div>
 
-      <label for="idNumber">ID NUMBER (STUDENTS ONLY)</label>
-      <input type="text" id="idNumber" required />
+      <div class="form-group">
+        <label for="contactNumber">Contact number (students only)</label>
+        <input type="text" id="contactNumber" required />
+      </div>
 
-      <label for="contactNumber">CONTACT NUMBER (STUDENTS ONLY)</label>
-      <input type="text" id="contactNumber" required />
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" required />
+      </div>
 
-      <label for="email">EMAIL ADDRESS</label>
-      <input type="email" id="email" required />
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+      </div>
 
-      <label for="password">PASSWORD</label>
-      <input type="password" id="password" required />
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" required />
+      </div>
 
-      <label for="confirmPassword">CONFIRM PASSWORD</label>
-      <input type="password" id="confirmPassword" required />
+      <p id="registerError" class="form-error"></p>
 
-      <p id="registerError" style="color: red;"></p>
-
-      <button type="submit">REGISTER</button>
+      <button type="submit" class="btn-primary">REGISTER</button>
     </form>
 
-    <form id="assessorRegisterForm" style="display: none;">
-      <h3>ASSESSOR</h3>
+    <form id="assessorRegisterForm" class="auth-form" style="display: none;">
+      <div class="form-group">
+        <label for="assessorFirstName">Assessor name</label>
+        <input type="text" id="assessorFirstName" required />
+      </div>
 
-      <label for="assessorFirstName">ASSESSOR NAME</label>
-      <input type="text" id="assessorFirstName" required />
+      <div class="form-group">
+        <label for="assessorLastName">Assessor last name</label>
+        <input type="text" id="assessorLastName" required />
+      </div>
 
-      <label for="assessorLastName">ASSESSOR LAST NAME</label>
-      <input type="text" id="assessorLastName" required />
+      <div class="form-group">
+        <label for="assessorContactNumber">Contact number</label>
+        <input type="text" id="assessorContactNumber" />
+      </div>
 
-      <label for="assessorContactNumber">CONTACT NUMBER</label>
-      <input type="text" id="assessorContactNumber" />
+      <div class="form-group">
+        <label for="assessorRegEmail">Email address</label>
+        <input type="email" id="assessorRegEmail" required />
+      </div>
 
-      <label for="assessorRegEmail">EMAIL ADDRESS</label>
-      <input type="email" id="assessorRegEmail" required />
+      <div class="form-group">
+        <label for="assessorRegPassword">Password</label>
+        <input type="password" id="assessorRegPassword" required />
+      </div>
 
-      <label for="assessorRegPassword">PASSWORD</label>
-      <input type="password" id="assessorRegPassword" required />
+      <div class="form-group">
+        <label for="assessorRegConfirmPassword">Confirm password</label>
+        <input type="password" id="assessorRegConfirmPassword" required />
+      </div>
 
-      <label for="assessorRegConfirmPassword">CONFIRM PASSWORD</label>
-      <input type="password" id="assessorRegConfirmPassword" required />
+      <p id="assessorRegisterError" class="form-error"></p>
 
-      <p id="assessorRegisterError" style="color: red;"></p>
-
-      <button type="submit">REGISTER</button>
+      <button type="submit" class="btn-primary">REGISTER</button>
     </form>
 
-    <p>Already have an account? <a href="login.html">Sign In</a></p>
+    <p class="card-footer">Already have an account? <a href="login.html">Sign in</a></p>
   </main>
 
   <script>
-    document.getElementById("showStudentForm").addEventListener("click", () => {
-      document.getElementById("studentRegisterForm").style.display = "block";
-      document.getElementById("assessorRegisterForm").style.display = "none";
+    const studentTab = document.getElementById("showStudentForm");
+    const assessorTab = document.getElementById("showAssessorForm");
+    const studentForm = document.getElementById("studentRegisterForm");
+    const assessorForm = document.getElementById("assessorRegisterForm");
+
+    studentTab.addEventListener("click", () => {
+      studentForm.style.display = "block";
+      assessorForm.style.display = "none";
+      studentTab.classList.add("active");
+      assessorTab.classList.remove("active");
     });
-    document.getElementById("showAssessorForm").addEventListener("click", () => {
-      document.getElementById("studentRegisterForm").style.display = "none";
-      document.getElementById("assessorRegisterForm").style.display = "block";
+
+    assessorTab.addEventListener("click", () => {
+      studentForm.style.display = "none";
+      assessorForm.style.display = "block";
+      assessorTab.classList.add("active");
+      studentTab.classList.remove("active");
     });
   </script>
 

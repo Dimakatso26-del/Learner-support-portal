@@ -1,0 +1,277 @@
+1. System Architecture
+
+Frontend (React.js)
+
+      |
+      V
+
+Firebase Authentication
+      |
+      V
+
+REST API Layer (Node.js + Express)
+
+StudentController
+Properties:
+
+      1 studentService
+
+Methods:
+
+registerStudent(req, res)
+loginStudent(req, res)
+getStudentProfile(req, res)
+
+TicketController
+Properties:
+
+      1 ticketService
+
+Methods:
+
+createTicket(req, res)
+getTickets(req, res)
+updateTicketStatus(req, res)
+deleteTicket(req, res)
+
+Relationship Between Classes:
+StudentController
+      |
+      v
+StudentService
+      |
+      v
+Student
+ 
+
+TicketController
+      |
+      v
+TicketService
+      |
+      v
+SupportTicket
+
++----------------+
+|     Student    |
++----------------+
+| studentId      |
+| fullName       |
+| email          |
+| course         |
++----------------+
+| createTicket() |
+| viewTickets()  |
++-------+--------+
+        |
+        | 1
+        |
+        | *
++-------v--------+
+| SupportTicket  |
++----------------+
+| ticketId       |
+| subject        |
+| description    |
+| status         |
+| priority       |
++----------------+
+| updateStatus() |
+| closeTicket()  |
++----------------+
+
+---
+
+      |
+      V
+
+Firebase Firestore Database
+
+      |
+      ├── Students
+      |         └── StudentId: string     
+      |         ├── DisplayName: string
+      |         ├── Email: string
+      |         ├── Role: string
+      |         ├── Programme: string
+      |         ├── Phone: number
+      |         ├── CreatedAt: date
+      |         ├── Last Login: date
+      |
+      ├── Assessors
+      |          └── AssessorId: string
+      |          ├── DisplayName: string
+      |          ├── Email: string
+      |          ├── Role: string  
+      |          ├── EmployeeNumber: number 
+      |          ├── CreatedAt: date  
+      | 
+      ├── Tasks
+      |           └── TaskId: string
+      |           ├── StudentId: string
+      |           ├── Title: string
+      |           ├── Description ( GET, POST AND EMPLEMENT): string
+      |           ├── Catergory (JAVASCRIPT, HTML AND CSS): string
+      |           ├── Due Date: date
+      |           ├── status ( completed, overdue,): string
+      |           ├── Priority (Medium): string
+      |           ├── Completed: string
+      |           ├── CreatedAt: date
+      |           ├── UpdatedAt: date
+      |
+      ├── Progress
+      |           └── ProgressId: string
+      |           ├── StudentId: string
+      |           ├── TotalTasks: string
+      |           ├── CompletedTasks: number
+      |           ├── Outstanding Tasks: number
+      |           ├── Overdue Tasks: number
+      |           ├── Progress Percentage: number
+      |           ├── Average Score: number
+      |           ├── Last updated: date
+      | 
+      ├── Bookings
+      |           └── BookingId: string
+      |           ├── StudentId: string
+      |           ├── StudentName: string
+      |           ├── AssessorId: string 
+      |           ├── Topic: string
+      |           ├── Preffered Date: date
+      |           ├── Preffered Time: date
+      |           ├── Mode (ONLINE OR FACE TO FACE): string
+      |           ├── Notes: string
+      |           ├── Status ( pending, confirmed, declined, completed ): string
+      |           ├── AssessorId: string
+      |           ├── CreatedAT: date
+      |
+      ├── Challenges
+      |          └── ScoreId: number
+      |          ├── StudentId: string
+      |          ├── Game Name: string
+      |          ├── Score: number
+      |          ├── HighScore: number
+      |          ├── Duration Seconds: number
+      |          ├── Level reached: number
+      |          ├── CompletedAt: date
+      |          ├── Feedback: string
+      |          └── 
+
+2. Firebase Services
+Firebase Authentication
+
+Used for:
+
+Student Login
+Student Registration
+Assessor Login
+Assessor Registration
+Password Reset
+Session Management
+
+Authentication Methods:
+1 Email & Password
+2 Google Authentication (Future)
+3 Microsoft Authentication (Future)
+
+
+3. Database Design 
+
+User's Collection
+
+{
+  "userId": "uid123",
+  "role": "student",
+  "firstName": "Dimakatso",
+  "lastName": "Mosima",
+  "email": "DimakatsoMosima@email.com",
+  "phone": "0661352502",
+  "createdAt": "timestamp
+
+Task Collection
+
+{
+  "taskId": "task001",
+  "title": "Project JavaScript",
+  "category": "Coding",
+  "dueDate": "2026-02-28",
+  "status": "Outstanding",
+  "learnerId": "uid123"
+}
+
+Progress Collection
+
+{
+  "progressId": "prog001",
+  "studentId": "uid123",
+  "module": "Computing Fundamentals",
+  "completed": 6,
+  "total": 6,
+  "passRate": 100,
+  "status": "Passed"
+}
+
+Bookings Collection
+
+{
+  "bookingId": "book001",
+  "studentId": "uid123",
+  "assessorId": "uid987",
+  "topic": "JavaScript Essentials",
+  "date": "2026-07-20",
+  "time": "12:00",
+  "status": "Confirmed"
+}
+
+Code Challenge Collection
+
+{
+  "questionId": "q001",
+  "category": "Data Structures",
+  "question": "FIFO structure?",
+  "options": [
+    "Stack",
+    "Queue",
+    "BST",
+    "Hash Table"
+  ],
+  "answer": "Queue"
+}
+
+4. REST API Structure 
+
+Base URL:
+/api/v1
+
+5. CRUD Operations
+
+| **Object**       | **Create(POST)**                      | **Read(GET)**         | **Update(PUT)**              | **Delete(DELETE)**      |
+| **Users**        | Register new learner/assessor         | Profile fetch         | Update profile/settings      | Account deletion        |
+| **Tasks**        | Add new task	                       | Fetch learner tasks   | Mark complete/update status  | Remove task             |
+| **Progress**     | Auto-generated	                       | View progress summary | Update after task completion | N/A (system-managed)    |
+| **Bookings**     | Submit booking	                       | View bookings	     | Confirm/reschedule/decline	| Cancel booking          |
+| **Challenges**   | System adds	                       | Fetch challenge	     | Submit answer	            | N/A                     |
+| **Leaderboard**  | Auto-update	                       | View leaderboard	     | Update XP/rank	            | N/A                     |
+
+
+
+6. Validation Rules
+
+- Email format must match regex ^[^@]+@[^@]+\.[^@]+$.
+- Password minimum 8 characters, must include uppercase, lowercase, number.
+- Dates must be valid ISO YYYY-MM-DD.
+- Booking times must be within working hours (08:00–18:00).
+- XP updates only allowed via challenge completion.
+
+7. Security Approach
+
+Authentication: Firebase Auth with email/password, optional 2FA.
+
+Authorization:
+* Learners can only access their own tasks, progress, bookings.
+* Assessors can view learners they are assigned to, manage bookings.
+* Assessors have full access.
+
+Firestore Rules:
+* match /users/{userId} { allow read, update: if request.auth.uid == userId }
+* match /tasks/{taskId} { allow read: if request.auth.uid == resource.data.learnerId }
+* match /bookings/{bookingId} { allow update: if request.auth.uid == resource.data.assessorId }

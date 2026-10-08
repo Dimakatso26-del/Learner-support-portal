@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Support Portal</title>
+  <link rel="stylesheet" href="../CSS/Settings-ASSESSOR.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">SKILLSTRACK STUDENT SUPPORT PORTAL</div>
+    <ul class="nav-links">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Students</a></li>
+      <li><a href="#">Bookings</a></li>
+      <li><a href="#" class="active">Settings</a></li>
+    </ul>
+    <div class="nav-user">
+      <span>Miss Londeka</span>
+      <button class="btn-signout">Sign Out</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <h1>Settings</h1>
+      <p class="subtitle">Adjust your dashboard views, notification parameters, and core assessor account settings.</p>
+    </header>
+
+    <!-- Two-Column Cards Grid -->
+    <main class="settings-grid">
+      
+      <!-- Left Column: Preferences -->
+      <section class="settings-card">
+        <h2 class="card-title">Assessor Preferences</h2>
+        
+        <div class="form-group">
+          <label class="field-label">Theme Appearance</label>
+          <div class="toggle-group">
+            <button class="btn-toggle active">Light Mode</button>
+            <button class="btn-toggle text-muted">Dark Mode (Grayscale)</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Notification Preferences</label>
+          <div class="checkbox-item">
+            <input type="checkbox" id="notify-bookings" checked>
+            <label for="notify-bookings">Email notifications for new bookings</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="notify-late" checked>
+            <label for="notify-late">Email notifications for late task submissions</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="weekly-digest">
+            <label for="weekly-digest">Weekly digest of learner statistics</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label" for="landing-view">Default Landing View</label>
+          <select id="landing-view" class="select-input">
+            <option>Dashboard (Default)</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Right Column: Account Info -->
+      <section class="settings-card">
+        <h2 class="card-title">Account Information</h2>
+        
+        <form onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label class="field-label" for="profile-name">Full Profile Name</label>
+            <input type="text" id="profile-name" class="text-input" value="Londeka">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="email-address">Registered Email Address</label>
+            <input type="email" id="email-address" class="text-input" value="Londeka@tpc.training">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="system-role">System Privilege Role</label>
+            <input type="text" id="system-role" class="text-input" value="Assessor" readonly>
+          </div>
+
+          <div class="action-buttons">
+            <button type="submit" class="btn-primary">Save Changes</button>
+            <button type="button" class="btn-danger">Sign Out Account</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

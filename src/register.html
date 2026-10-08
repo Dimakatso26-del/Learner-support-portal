@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — SkillsTrack Learner Support Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page">
+
+  <main class="auth-card">
+    <header class="card-header">
+      <span class="brand-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="12" height="4" rx="1"></rect>
+          <rect x="2" y="8" width="5" height="6" rx="1"></rect>
+          <rect x="9" y="8" width="5" height="6" rx="1"></rect>
+        </svg>
+      </span>
+      <span class="brand">SKILLSTRACK LEARNER SUPPORT PORTAL</span>
+    </header>
+
+    <h1 class="card-title">Create your account</h1>
+
+    <div class="role-tabs">
+      <button type="button" id="showStudentForm" class="role-tab active">STUDENT</button>
+      <button type="button" id="showAssessorForm" class="role-tab">ASSESSOR</button>
+    </div>
+
+    <form id="studentRegisterForm" class="auth-form">
+      <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="idNumber">ID number (students only)</label>
+        <input type="text" id="idNumber" required />
+      </div>
+
+      <div class="form-group">
+        <label for="contactNumber">Contact number (students only)</label>
+        <input type="text" id="contactNumber" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" required />
+      </div>
+
+      <p id="registerError" class="form-error"></p>
+
+      <button type="submit" class="btn-primary">REGISTER</button>
+    </form>
+
+    <form id="assessorRegisterForm" class="auth-form" style="display: none;">
+      <div class="form-group">
+        <label for="assessorFirstName">Assessor name</label>
+        <input type="text" id="assessorFirstName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="assessorLastName">Assessor last name</label>
+        <input type="text" id="assessorLastName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="assessorContactNumber">Contact number</label>
+        <input type="text" id="assessorContactNumber" />
+      </div>
+
+      <div class="form-group">
+        <label for="assessorRegEmail">Email address</label>
+        <input type="email" id="assessorRegEmail" required />
+      </div>
+
+      <div class="form-group">
+        <label for="assessorRegPassword">Password</label>
+        <input type="password" id="assessorRegPassword" required />
+      </div>
+
+      <div class="form-group">
+        <label for="assessorRegConfirmPassword">Confirm password</label>
+        <input type="password" id="assessorRegConfirmPassword" required />
+      </div>
+
+      <p id="assessorRegisterError" class="form-error"></p>
+
+      <button type="submit" class="btn-primary">REGISTER</button>
+    </form>
+
+    <p class="card-footer">Already have an account? <a href="login.html">Sign in</a></p>
+  </main>
+
+  <script>
+    const studentTab = document.getElementById("showStudentForm");
+    const assessorTab = document.getElementById("showAssessorForm");
+    const studentForm = document.getElementById("studentRegisterForm");
+    const assessorForm = document.getElementById("assessorRegisterForm");
+
+    studentTab.addEventListener("click", () => {
+      studentForm.style.display = "block";
+      assessorForm.style.display = "none";
+      studentTab.classList.add("active");
+      assessorTab.classList.remove("active");
+    });
+
+    assessorTab.addEventListener("click", () => {
+      studentForm.style.display = "none";
+      assessorForm.style.display = "block";
+      assessorTab.classList.add("active");
+      studentTab.classList.remove("active");
+    });
+  </script>
+
+  <script type="module" src="register.js"></script>
+
+</body>
+</html>

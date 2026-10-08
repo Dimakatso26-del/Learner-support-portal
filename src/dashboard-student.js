@@ -1,5 +1,5 @@
 import { protectPage } from "./session.js";
-import { db, watchAuthState, logoutUser } from "./auth.js";
+import { db, watchAuthState } from "./auth.js";
 import {
   ref,
   get,
@@ -10,74 +10,57 @@ import {
 
 protectPage("STUDENT");
 
-const loginPage = new URL("login.html", import.meta.url).href;
-
-const navTargets = {
-  dashboard: "Dashboard-STUDENT.html",
-  tasks: "Task-STUDENT.html",
-  support: "Support-STUDENT.html",
-  game: "Game-STUDENT.html",
-  settings: "Settings-STUDENT.html"
-};
-
-function findByText(text) {
-  const target = text.trim().toLowerCase();
-  return [...document.body.querySelectorAll("*")].find(
-    (el) => el.children.length === 0 && el.textContent.trim().toLowerCase() === target
-  );
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
 }
 
-function setCardValue(label, value) {
-  const labelEl = findByText(label);
-  if (!labelEl) return;
+function dueLabel(dateString) {
+  const days = Math.ceil((new Date(dateString) - new Date()) / 86400000);
+  if (days < 0) return `Overdue by ${Math.abs(days)} day(s)`;
+  if (days === 0) return "Due today";
+  return `Due in ${days} day(s)`;
+}
 
-  let card = labelEl.parentElement;
-  while (card && card !== document.body) {
-    const numberEl = [...card.querySelectorAll("*")].find(
-      (el) => el !== labelEl && el.children.length === 0 && /^\d+$/.test(el.textContent.trim())
-    );
-    if (numberEl) {
-      numberEl.textContent = value;
-      return;
-    }
-    card = card.parentElement;
+function renderRecentTasks(outstanding) {
+  const list = document.getElementById("recentTasks");
+  list.textContent = "";
+
+  if (outstanding.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = "No outstanding tasks. Nice work!";
+    list.appendChild(empty);
+    return;
   }
-}
 
-function wireNavigation() {
-  document.querySelectorAll("header *, nav *").forEach((el) => {
-    if (el.children.length !== 0) return;
-    const key = el.textContent.trim().toLowerCase();
-    if (navTargets[key]) {
-      el.style.cursor = "pointer";
-      el.addEventListener("click", (event) => {
-        event.preventDefault();
-        window.location.href = navTargets[key];
-      });
-    }
+  const recent = [...outstanding]
+    .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+    .slice(0, 3);
+
+  recent.forEach((task) => {
+    const row = document.createElement("div");
+    row.className = "task";
+
+    const check = document.createElement("span");
+    check.className = "check";
+
+    const info = document.createElement("div");
+    const title = document.createElement("b");
+    title.textContent = task.title;
+    const details = document.createElement("small");
+    details.textContent = `${task.category || "General"} · ${dueLabel(task.dueDate)}`;
+    info.append(title, details);
+
+    const resume = document.createElement("button");
+    resume.textContent = "RESUME";
+    resume.addEventListener("click", () => {
+      window.location.href = "Task-STUDENT.html";
+    });
+
+    row.append(check, info, resume);
+    list.appendChild(row);
   });
 }
-
-function wireSignOut() {
-  const signOutEl = findByText("Sign Out");
-  if (!signOutEl) return;
-  signOutEl.style.cursor = "pointer";
-  signOutEl.addEventListener("click", async (event) => {
-    event.preventDefault();
-    await logoutUser();
-    window.location.href = loginPage;
-  });
-}
-
-function setWelcomeName(firstName) {
-  const heading = [...document.querySelectorAll("h1, h2, h3")].find((el) =>
-    /^welcome back/i.test(el.textContent.trim())
-  );
-  if (heading) heading.textContent = `Welcome back, ${firstName}`;
-}
-
-wireNavigation();
-wireSignOut();
 
 watchAuthState(async (user) => {
   if (!user) return;
@@ -85,23 +68,24 @@ watchAuthState(async (user) => {
   try {
     const profileSnapshot = await get(ref(db, "users/" + user.uid));
     if (profileSnapshot.exists()) {
-      setWelcomeName(profileSnapshot.val().firstName);
+      setText("welcomeName", profileSnapshot.val().firstName);
     }
 
     const tasksQuery = query(ref(db, "tasks"), orderByChild("userId"), equalTo(user.uid));
     const tasksSnapshot = await get(tasksQuery);
-
     const tasks = tasksSnapshot.exists() ? Object.values(tasksSnapshot.val()) : [];
+
     const today = new Date();
-
-    const completed = tasks.filter((t) => t.completed).length;
+    const completed = tasks.filter((t) => t.completed);
     const outstanding = tasks.filter((t) => !t.completed);
-    const overdue = outstanding.filter((t) => new Date(t.dueDate) < today).length;
+    const overdue = outstanding.filter((t) => new Date(t.dueDate) < today);
 
-    setCardValue("Total Tasks", tasks.length);
-    setCardValue("Completed", completed);
-    setCardValue("Outstanding", outstanding.length);
-    setCardValue("Overdue", overdue);
+    setText("totalTasks", tasks.length);
+    setText("completedTasks", completed.length);
+    setText("outstandingTasks", outstanding.length);
+    setText("overdueTasks", overdue.length);
+
+    renderRecentTasks(outstanding);
   } catch (error) {
     console.error("Could not load dashboard data:", error);
   }

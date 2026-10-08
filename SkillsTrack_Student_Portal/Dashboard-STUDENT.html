@@ -10,66 +10,59 @@
 <body>
   <div class="app">
     <header>
-      <a class="brand" href="#">
+      <a class="brand" href="Dashboard-STUDENT.html">
         <span class="brand-icon">▦</span>
         <strong>SKILLSTRACK STUDENT SUPPORT PORTAL</strong>
+      </a>
 
       <nav>
-        <a class="active">Dashboard</a>
-        <a>Tasks</a>
-        <a>Support</a>
-        <a>Game</a>
-        <a>Settings</a>
+        <a class="active" href="Dashboard-STUDENT.html">Dashboard</a>
+        <a href="Task-STUDENT.html">Tasks</a>
+        <a href="Support-STUDENT.html">Support</a>
+        <a href="Game-STUDENT.html">Game</a>
+        <a href="Settings-STUDENT.html">Settings</a>
       </nav>
 
       <div class="account">
-        <b>Dimakatso student</b>
+        <b id="userNameDisplay">Student</b>
         <i></i>
-        <button>Sign Out</button>
+        <button id="signOutButton">Sign Out</button>
       </div>
     </header>
 
     <main>
-      <h1>Welcome back, Dimakatso</h1>
+      <h1>Welcome back, <span id="welcomeName"></span></h1>
       <p class="lead"> Here is your progress overview and learning summary for this week.</p>
 
       <section class="stats">
         <article>
           <small>TOTAL TASKS</small>
-          <strong>12</strong>
+          <strong id="totalTasks">0</strong>
         </article>
 
         <article>
           <small>COMPLETED</small>
-          <strong>7</strong>
+          <strong id="completedTasks">0</strong>
         </article>
 
         <article>
           <small>OUTSTANDING</small>
-          <strong>4</strong>
+          <strong id="outstandingTasks">0</strong>
         </article>
 
         <article>
           <small>OVERDUE</small>
-          <strong>1</strong>
+          <strong id="overdueTasks">0</strong>
         </article>
       </section>
 
       <section class="panel">
         <h2>Recent Outstanding Tasks</h2>
-
-        <div class="task">
-          <span class="check"></span>
-
-          <div>
-            <b>Project: JavaScript</b>
-            <small>Coding · Due in 5 days</small>
-          </div>
-
-          <button>RESUME</button>
-        </div>
+        <div id="recentTasks"></div>
       </section>
     </main>
   </div>
+
+  <script type="module" src="../src/dashboard-student.js"></script>
 </body>
 </html>

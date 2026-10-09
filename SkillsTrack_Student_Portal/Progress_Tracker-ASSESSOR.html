@@ -5,42 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students - Support Portal</title>
   <link rel="stylesheet" href="Progress_Tracker-ASSESSOR.css">
+  <style>
+    dialog { max-width: 480px; width: 90%; border: 1px solid #d1d5db; border-radius: 8px; padding: 20px; }
+    dialog ul { padding-left: 18px; }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-brand">SKILLSTRACK STUDENT SUPPORT PORTAL</div>
     <ul class="nav-links">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="students.html" class="active">Students</a></li>
-      <li><a href="bookings.html">Bookings</a></li>
-      <li><a href="#">Settings</a></li>
+      <li><a href="Dashboard_Support-ASSESSOR.html">Dashboard</a></li>
+      <li><a href="Progress_Tracker-ASSESSOR.html" class="active">Students</a></li>
+      <li><a href="Bookings-ASSESSOR.html">Bookings</a></li>
+      <li><a href="Settings-ASSESSOR.html">Settings</a></li>
     </ul>
     <div class="nav-user">
-      <span>Miss Londeka</span>
-      <button class="btn-signout">Sign Out</button>
+      <span id="userNameDisplay">Assessor</span>
+      <button class="btn-signout" id="signOutButton">Sign Out</button>
     </div>
   </nav>
 
   <div class="container">
-    <!-- Header Section -->
     <header>
       <h1>Students</h1>
       <p class="subtitle">Manage, monitor progress, and review portal files for registered learners.</p>
+      <p id="pageMessage"></p>
     </header>
 
-    <!-- Search Controls Bar -->
     <div class="controls-row">
       <div class="search-container">
-        <input type="text" class="search-input" placeholder="Q Search students by name or email...">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search students by name or email...">
       </div>
-      <select>
-        <option>Filter: All Statuses</option>
+      <select id="statusFilter">
+        <option value="">Filter: All Statuses</option>
+        <option value="On Track">On Track</option>
+        <option value="At Risk">At Risk</option>
       </select>
     </div>
 
-    <!-- Data Table Container -->
     <div class="table-container">
       <table>
         <thead>
@@ -53,55 +56,18 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>Dimakatso Mosima</strong></td>
-            <td class="text-email">DimakatsoMosima@tpcstudents.co.za</td>
-            <td>12 / 18</td>
-            <td>66%</td>
-            <td><span class="badge status-track">On Track</span></td>
-            <td><button class="btn-profile">View Profile</button></td>
-          </tr>
-          <tr>
-            <td><strong>Senzokuhle Ngubane</strong></td>
-            <td class="text-email">Senzokuhle@tpcstudents.co.za</td>
-            <td>15 / 18</td>
-            <td>83%</td>
-            <td><span class="badge status-track">On Track</span></td>
-            <td><button class="btn-profile">View Profile</button></td>
-          </tr>
-          <tr>
-            <td><strong>Tebogo Mnguni</strong></td>
-            <td class="text-email">Tebogo@tpcstudents.co.za</td>
-            <td>8 / 18</td>
-            <td>44%</td>
-            <td><span class="badge status-risk">At Risk</span></td>
-            <td><button class="btn-profile">View Profile</button></td>
-          </tr>
-          <tr>
-            <td><strong>Blessing Manhique</strong></td>
-            <td class="text-email">Blessing@tpcstudents.co.za</td>
-            <td>8 / 18</td>
-            <td>44%</td>
-            <td><span class="badge status-risk">At Risk</span></td>
-            <td><button class="btn-profile">View Profile</button></td>
-          </tr>
-        </tbody>
+        <tbody id="studentsBody"></tbody>
       </table>
 
-      <!-- Integrated Pagination Row -->
       <div class="pagination-row">
-        <div>Showing 1-4 of 24 learners</div>
-        <div class="pagination-pages">
-          <a href="#" class="page-link">Previous</a>
-          <a href="#" class="page-link active">1</a>
-          <a href="#" class="page-link">2</a>
-          <a href="#" class="page-link">3</a>
-          <a href="#" class="page-link">Next</a>
-        </div>
+        <div id="showingText"></div>
+        <div class="pagination-pages" id="pageLinks"></div>
       </div>
     </div>
   </div>
 
+  <dialog id="profileDialog"></dialog>
+
+  <script type="module" src="../src/students-assessor.js"></script>
 </body>
 </html>

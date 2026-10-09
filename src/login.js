@@ -1,4 +1,5 @@
 import { loginUser } from "./auth.js";
+import { getCookie } from "./preferences.js";
 
 const studentLoginForm = document.getElementById("studentLoginForm");
 if (studentLoginForm) {
@@ -24,6 +25,12 @@ if (studentLoginForm) {
   });
 }
 
+const assessorPages = {
+  dashboard: "Dashboard_Support-ASSESSOR.html",
+  students: "Progress_Tracker-ASSESSOR.html",
+  bookings: "Bookings-ASSESSOR.html"
+};
+
 const assessorLoginForm = document.getElementById("assessorLoginForm");
 if (assessorLoginForm) {
   assessorLoginForm.addEventListener("submit", async (event) => {
@@ -41,7 +48,8 @@ if (assessorLoginForm) {
 
     try {
       await loginUser(email, password, "ASSESSOR");
-      window.location.href = "../SkillsTrack_Student_Portal/Dashboard_Support-ASSESSOR.html";
+      const landing = assessorPages[getCookie("landingView")] || assessorPages.dashboard;
+      window.location.href = "../SkillsTrack_Student_Portal/" + landing;
     } catch (error) {
       errorBox.textContent = error.message;
     }

@@ -5,43 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Settings - Support Portal</title>
   <link rel="stylesheet" href="Settings-ASSESSOR.css">
+  <style>
+    .form-message { min-height: 18px; font-size: 13px; }
+    .form-message.error { color: #dc2626; }
+    .form-message.ok { color: #16a34a; }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-brand">SKILLSTRACK STUDENT SUPPORT PORTAL</div>
     <ul class="nav-links">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Students</a></li>
-      <li><a href="#">Bookings</a></li>
-      <li><a href="#" class="active">Settings</a></li>
+      <li><a href="Dashboard_Support-ASSESSOR.html">Dashboard</a></li>
+      <li><a href="Progress_Tracker-ASSESSOR.html">Students</a></li>
+      <li><a href="Bookings-ASSESSOR.html">Bookings</a></li>
+      <li><a href="Settings-ASSESSOR.html" class="active">Settings</a></li>
     </ul>
     <div class="nav-user">
-      <span>Miss Londeka</span>
-      <button class="btn-signout">Sign Out</button>
+      <span id="userNameDisplay">Assessor</span>
+      <button class="btn-signout" id="signOutButton">Sign Out</button>
     </div>
   </nav>
 
   <div class="container">
-    <!-- Header Section -->
     <header>
       <h1>Settings</h1>
       <p class="subtitle">Adjust your dashboard views, notification parameters, and core assessor account settings.</p>
     </header>
 
-    <!-- Two-Column Cards Grid -->
     <main class="settings-grid">
-      
-      <!-- Left Column: Preferences -->
+
       <section class="settings-card">
         <h2 class="card-title">Assessor Preferences</h2>
-        
+
         <div class="form-group">
           <label class="field-label">Theme Appearance</label>
           <div class="toggle-group">
-            <button class="btn-toggle active">Light Mode</button>
-            <button class="btn-toggle text-muted">Dark Mode (Grayscale)</button>
+            <button type="button" id="lightButton" class="btn-toggle active">Light Mode</button>
+            <button type="button" id="darkButton" class="btn-toggle text-muted">Dark Mode (Grayscale)</button>
           </div>
         </div>
 
@@ -64,24 +65,25 @@
         <div class="form-group">
           <label class="field-label" for="landing-view">Default Landing View</label>
           <select id="landing-view" class="select-input">
-            <option>Dashboard (Default)</option>
+            <option value="dashboard">Dashboard (Default)</option>
+            <option value="students">Students</option>
+            <option value="bookings">Bookings</option>
           </select>
         </div>
       </section>
 
-      <!-- Right Column: Account Info -->
       <section class="settings-card">
         <h2 class="card-title">Account Information</h2>
-        
-        <form onsubmit="event.preventDefault();">
+
+        <form id="profileForm">
           <div class="form-group">
             <label class="field-label" for="profile-name">Full Profile Name</label>
-            <input type="text" id="profile-name" class="text-input" value="Londeka">
+            <input type="text" id="profile-name" class="text-input">
           </div>
 
           <div class="form-group">
             <label class="field-label" for="email-address">Registered Email Address</label>
-            <input type="email" id="email-address" class="text-input" value="Londeka@tpc.training">
+            <input type="email" id="email-address" class="text-input" readonly>
           </div>
 
           <div class="form-group">
@@ -89,9 +91,11 @@
             <input type="text" id="system-role" class="text-input" value="Assessor" readonly>
           </div>
 
+          <p id="settingsMessage" class="form-message"></p>
+
           <div class="action-buttons">
             <button type="submit" class="btn-primary">Save Changes</button>
-            <button type="button" class="btn-danger">Sign Out Account</button>
+            <button type="button" class="btn-danger" id="signOutAccountButton">Sign Out Account</button>
           </div>
         </form>
       </section>
@@ -99,5 +103,6 @@
     </main>
   </div>
 
+  <script type="module" src="../src/settings-assessor.js"></script>
 </body>
 </html>

@@ -5,26 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SkillsTrack Settings</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-message { min-height: 18px; margin: 6px 0; font-size: 13px; }
+    .form-message.error { color: #dc2626; }
+    .form-message.ok { color: #16a34a; }
+  </style>
 </head>
 <body>
   <div class="app">
     <header>
-      <a class="brand" href="#">
+      <a class="brand" href="Dashboard-STUDENT.html">
         <span class="brand-icon">▦</span>
         <strong>SKILLSTRACK STUDENT SUPPORT PORTAL</strong>
-        
+      </a>
+
       <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Tasks</a>
-        <a href="#">Support</a>
-        <a href="#">Game</a>
-        <a class="active" href="#">Settings</a>
+        <a href="Dashboard-STUDENT.html">Dashboard</a>
+        <a href="Task-STUDENT.html">Tasks</a>
+        <a href="Support-STUDENT.html">Support</a>
+        <a href="Game-STUDENT.html">Game</a>
+        <a class="active" href="Settings-STUDENT.html">Settings</a>
       </nav>
 
       <div class="account">
-        <b>Dimakatso student</b>
+        <b id="userNameDisplay">Student</b>
         <i></i>
-        <button>Sign Out</button>
+        <button id="signOutButton">Sign Out</button>
       </div>
     </header>
 
@@ -42,49 +48,49 @@
 
           <h3>THEME APPEARANCE</h3>
           <div class="theme-options">
-            <button class="selected">Light Mode</button>
-            <button>Dark Mode</button>
+            <button type="button" id="lightButton" class="selected">Light Mode</button>
+            <button type="button" id="darkButton">Dark Mode</button>
           </div>
 
           <h3>DISPLAY FONT WEIGHT</h3>
 
           <label class="radio">
-            <input type="radio" name="font-weight" checked>
+            <input type="radio" name="font-weight" id="weightRegular" checked>
             <span>Comfortable regular text</span>
           </label>
 
           <label class="radio">
-            <input type="radio" name="font-weight">
+            <input type="radio" name="font-weight" id="weightBold">
             <span>Enhanced visual emphasis</span>
           </label>
 
           <hr>
-          <button class="clear-button">Clear Preferences</button>
+          <button type="button" class="clear-button" id="clearPreferencesButton">Clear Preferences</button>
         </section>
 
         <section class="card">
           <h2>Account Information</h2>
           <hr>
 
-          <form>
+          <form id="profileForm">
             <label for="name">FULL PROFILE NAME</label>
-            <input id="name" type="text" value="Dimakatso Mosima">
+            <input id="name" type="text">
 
             <label for="email">REGISTERED EMAIL ADDRESS</label>
-            <input
-              id="email"
-              type="email"
-              value="DimakatsoMosima@tpcstudents.co.za"
-            >
+            <input id="email" type="email" readonly>
 
             <hr>
 
+            <p id="settingsMessage" class="form-message"></p>
+
             <button class="save-button" type="submit">SAVE CHANGES</button>
-            <button class="danger-button" type="button">DELETE ACCOUNT</button>
+            <button class="danger-button" type="button" id="deleteAccountButton">DELETE ACCOUNT</button>
           </form>
         </section>
       </div>
     </main>
   </div>
+
+  <script type="module" src="../src/settings.js"></script>
 </body>
 </html>

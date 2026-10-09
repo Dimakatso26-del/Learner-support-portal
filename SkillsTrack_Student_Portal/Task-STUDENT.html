@@ -5,54 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SkillsTrack Tasks</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    [hidden] { display: none !important; }
+    #taskForm { display: grid; gap: 10px; max-width: 420px; }
+    #taskForm label { font-size: 12px; font-weight: 700; }
+    #taskForm input, #taskForm select { padding: 8px; }
+    .form-buttons { display: flex; gap: 10px; }
+    .form-error { color: #dc2626; min-height: 18px; margin: 0; }
+    .action-btn { cursor: pointer; margin-right: 10px; }
+    .check-box { cursor: pointer; }
+    .empty-msg { padding: 16px; }
+    .empty-msg a { cursor: pointer; text-decoration: underline; }
+  </style>
 </head>
 <body>
   <div class="app">
     <header>
-      <a class="brand">
+      <a class="brand" href="Dashboard-STUDENT.html">
         <span class="brand-icon">▦</span>
         <strong>SKILLSTRACK STUDENT SUPPORT PORTAL</strong>
+      </a>
 
       <nav>
-        <a>Dashboard</a>
-        <a class="active">Tasks</a>
-        <a>Support</a>
-        <a>Game</a>
-        <a>Settings</a>
+        <a href="Dashboard-STUDENT.html">Dashboard</a>
+        <a class="active" href="Task-STUDENT.html">Tasks</a>
+        <a href="Support-STUDENT.html">Support</a>
+        <a href="Game-STUDENT.html">Game</a>
+        <a href="Settings-STUDENT.html">Settings</a>
       </nav>
 
       <div class="account">
-        <b>Dimakatso student</b>
+        <b id="userNameDisplay">Student</b>
         <i></i>
-        <button>Sign Out</button>
+        <button id="signOutButton">Sign Out</button>
       </div>
     </header>
 
     <main>
       <div class="title">
         <h1>My Tasks</h1>
-        <button>+ ADD TASK</button>
+        <button type="button" id="addTaskButton">+ ADD TASK</button>
       </div>
+
+      <section class="panel" id="taskFormPanel" hidden>
+        <h2 id="formHeading">Add task</h2>
+        <form id="taskForm">
+          <label for="taskTitle">Task title</label>
+          <input type="text" id="taskTitle" maxlength="100">
+
+          <label for="taskCategory">Category</label>
+          <select id="taskCategory">
+            <option>Theory</option>
+            <option>Coding</option>
+            <option>Project</option>
+            <option>Other</option>
+          </select>
+
+          <label for="taskDueDate">Due date</label>
+          <input type="date" id="taskDueDate">
+
+          <p id="taskFormError" class="form-error"></p>
+
+          <div class="form-buttons">
+            <button type="submit" id="saveTaskButton">SAVE TASK</button>
+            <button type="button" id="cancelTaskButton">CANCEL</button>
+          </div>
+        </form>
+      </section>
+
+      <p id="taskStatus"></p>
 
       <div class="filters">
-        <input type="search" placeholder="⌕ Search tasks...">
+        <input type="search" id="searchInput" placeholder="⌕ Search tasks...">
 
-        <select>
-          <option>Category</option>
+        <select id="categoryFilter">
+          <option value="">Category</option>
         </select>
 
-        <select>
-          <option>Due Date</option>
+        <select id="dueFilter">
+          <option value="">Due Date</option>
+          <option value="overdue">Overdue</option>
+          <option value="week">Next 7 days</option>
+          <option value="completed">Completed</option>
         </select>
 
-        <select>
-          <option>Sort</option>
+        <select id="sortSelect">
+          <option value="">Sort</option>
+          <option value="due">Due date</option>
+          <option value="title">Title</option>
         </select>
 
-        <button>↕</button>
+        <button type="button" id="sortDirection">↕</button>
       </div>
 
-      <section class="table">
+      <section class="table" id="taskTable">
         <div class="tr head">
           <span>□</span>
           <b>TASK TITLE</b>
@@ -60,32 +106,10 @@
           <b>DUE DATE</b>
           <b>ACTIONS</b>
         </div>
-
-        <div class="tr">
-          <span>▣</span>
-          <span>Digital foundations</span>
-          <span>Theory</span>
-          <span>25 Feb 2026</span>
-          <span>✎ &nbsp; ♧</span>
-        </div>
-
-        <div class="tr">
-          <span>□</span>
-          <span>Coding basics with JavaScript</span>
-          <span>Coding</span>
-          <span>Yesterday</span>
-          <span>✎ &nbsp; ♧</span>
-        </div>
-
-        <div class="tr">
-          <span>□</span>
-          <span>Project: JavaScript</span>
-          <span>Coding</span>
-          <span>In 5 days</span>
-          <span>✎ &nbsp; ♧</span>
-        </div>
       </section>
     </main>
   </div>
+
+  <script type="module" src="../src/tasks.js"></script>
 </body>
 </html>

@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SkillsTrack Support</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-message { min-height: 18px; margin: 6px 0; font-size: 13px; }
+    .form-message.error { color: #dc2626; }
+    .form-message.ok { color: #16a34a; }
+    .empty-msg { padding: 14px; }
+  </style>
 </head>
 <body>
   <div class="app">
     <header>
-      <a class="brand">
-       <span class="brand-icon">▦</span>
+      <a class="brand" href="Dashboard-STUDENT.html">
+        <span class="brand-icon">▦</span>
         <strong>SKILLSTRACK STUDENT SUPPORT PORTAL</strong>
+      </a>
 
       <nav>
-        <a>Dashboard</a>
-        <a>Tasks</a>
-        <a class="active">Support</a>
-        <a>Game</a>
-        <a>Settings</a>
+        <a href="Dashboard-STUDENT.html">Dashboard</a>
+        <a href="Task-STUDENT.html">Tasks</a>
+        <a class="active" href="Support-STUDENT.html">Support</a>
+        <a href="Game-STUDENT.html">Game</a>
+        <a href="Settings-STUDENT.html">Settings</a>
       </nav>
 
       <div class="account">
-        <b>Dimakatso student</b>
+        <b id="userNameDisplay">Student</b>
         <i></i>
-        <button>Sign Out</button>
+        <button id="signOutButton">Sign Out</button>
       </div>
     </header>
 
@@ -35,21 +42,34 @@
       </p>
 
       <div class="columns">
-        <form>
+        <form id="bookingForm">
           <h2>New Booking Request</h2>
           <hr>
 
           <label for="module">SUBJECT / TOPIC / MODULE</label>
           <select id="module">
-            <option>4. Coding Basics with JavaScript</option>
+            <option value="">Select a topic</option>
+            <option>Computing Fundamentals</option>
+            <option>Thinking Like a Programmer</option>
+            <option>Coding Basics with JavaScript</option>
+            <option>Project: JavaScript</option>
           </select>
 
           <label for="date">PREFERRED DATE</label>
-          <input id="date" type="date" value="2026-07-22">
+          <input id="date" type="date">
 
           <label for="time">PREFERRED TIME</label>
           <select id="time">
-            <option>e.g. 14:00</option>
+            <option value="">Select a time</option>
+            <option>08:00</option>
+            <option>09:00</option>
+            <option>10:00</option>
+            <option>11:00</option>
+            <option>12:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            <option>15:00</option>
+            <option>16:00</option>
           </select>
 
           <label for="notes">ADDITIONAL NOTES</label>
@@ -58,10 +78,12 @@
             placeholder="Describe what you need help with..."
           ></textarea>
 
+          <p id="bookingMessage" class="form-message"></p>
+
           <button type="submit">SUBMIT BOOKING</button>
         </form>
 
-        <section>
+        <section id="myBookings">
           <h2>My Bookings</h2>
 
           <div class="booking head">
@@ -69,21 +91,11 @@
             <b>DATE &amp; TIME</b>
             <b>STATUS</b>
           </div>
-
-          <div class="booking">
-            <span>JavaScript Essentials</span>
-            <span>23 JULY 26 · 12:00</span>
-            <em>CONFIRMED</em>
-          </div>
-
-          <div class="booking">
-            <span>Arrays and Data Structures</span>
-            <span>31 JULY 26 · 10:00</span>
-            <em>PENDING</em>
-          </div>
         </section>
       </div>
     </main>
   </div>
+
+  <script type="module" src="../src/support.js"></script>
 </body>
 </html>

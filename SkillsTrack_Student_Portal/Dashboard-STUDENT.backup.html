@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <a class="brand" href="Dashboard-STUDENT.html">
+        <span class="brand-icon">▦</span>
+        <strong>SKILLSTRACK STUDENT SUPPORT PORTAL</strong>
+      </a>
+
+      <nav>
+        <a class="active" href="Dashboard-STUDENT.html">Dashboard</a>
+        <a href="Task-STUDENT.html">Tasks</a>
+        <a href="Support-STUDENT.html">Support</a>
+        <a href="Game-STUDENT.html">Game</a>
+        <a href="Settings-STUDENT.html">Settings</a>
+      </nav>
+
+      <div class="account">
+        <b id="userNameDisplay">Student</b>
+        <i></i>
+        <button id="signOutButton">Sign Out</button>
+      </div>
+    </header>
+
+    <main>
+      <h1>Welcome back, <span id="welcomeName"></span></h1>
+      <p class="lead"> Here is your progress overview and learning summary for this week.</p>
+
+      <section class="stats">
+        <article>
+          <small>TOTAL TASKS</small>
+          <strong id="totalTasks">0</strong>
+        </article>
+
+        <article>
+          <small>COMPLETED</small>
+          <strong id="completedTasks">0</strong>
+        </article>
+
+        <article>
+          <small>OUTSTANDING</small>
+          <strong id="outstandingTasks">0</strong>
+        </article>
+
+        <article>
+          <small>OVERDUE</small>
+          <strong id="overdueTasks">0</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Recent Outstanding Tasks</h2>
+        <div id="recentTasks"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="../src/dashboard-student.js"></script>
+</body>
+</html>

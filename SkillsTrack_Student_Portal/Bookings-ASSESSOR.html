@@ -8,55 +8,59 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-brand">SKILLSTRACK STUDENT SUPPORT PORTAL</div>
     <ul class="nav-links">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="students.html">Students</a></li>
-      <li><a href="bookings.html" class="active">Bookings</a></li>
-      <li><a href="#">Settings</a></li>
+      <li><a href="Dashboard_Support-ASSESSOR.html">Dashboard</a></li>
+      <li><a href="Progress_Tracker-ASSESSOR.html">Students</a></li>
+      <li><a href="Bookings-ASSESSOR.html" class="active">Bookings</a></li>
+      <li><a href="Settings-ASSESSOR.html">Settings</a></li>
     </ul>
     <div class="nav-user">
-      <span>Miss Londeka</span>
-      <button class="btn-signout">Sign Out</button>
+      <span id="userNameDisplay">Assessor</span>
+      <button class="btn-signout" id="signOutButton">Sign Out</button>
     </div>
   </nav>
 
   <div class="container">
-    <!-- Header Section -->
     <header>
       <h1>Bookings</h1>
       <p class="subtitle">Review, confirm, or reschedule individual learner 1-on-1 support sessions.</p>
+      <p id="pageMessage"></p>
     </header>
 
-    <!-- Metrics Row -->
     <section class="metrics-row">
       <div class="metric-card">
         <div class="metric-label">Pending Bookings</div>
-        <div class="metric-value">6</div>
+        <div class="metric-value" id="pendingCount">0</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">Confirmed Bookings</div>
-        <div class="metric-value">12</div>
+        <div class="metric-value" id="confirmedCount">0</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">Completed Bookings</div>
-        <div class="metric-value">34</div>
+        <div class="metric-value" id="completedCount">0</div>
       </div>
     </section>
 
-    <!-- Filter Actions Bar -->
     <div class="controls-row">
-      <select>
-        <option>Status: All</option>
+      <select id="statusFilter">
+        <option value="">Status: All</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="completed">Completed</option>
+        <option value="declined">Declined</option>
+        <option value="cancelled">Cancelled</option>
       </select>
-      <select>
-        <option>Date Range: Next 5 Days</option>
+      <select id="rangeFilter">
+        <option value="all">Date Range: All dates</option>
+        <option value="next5">Date Range: Next 5 Days</option>
+        <option value="next30">Date Range: Next 30 Days</option>
+        <option value="past">Date Range: Past</option>
       </select>
     </div>
 
-    <!-- Data Table Container -->
     <div class="table-container">
       <table>
         <thead>
@@ -69,55 +73,11 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><strong>Dimakatso Mosima</strong></td>
-            <td>Coding Basics with Javascript</td>
-            <td>Today</td>
-            <td>14:00</td>
-            <td><span class="badge status-confirmed">Confirmed</span></td>
-            <td class="actions-cell">
-              <button class="btn btn-border">Reschedule</button>
-              <button class="btn btn-danger">Cancel</button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Senzokuhle Mnguni</strong></td>
-            <td>Thinking like a Programmer</td>
-            <td>Tomorrow</td>
-            <td>10:30</td>
-            <td><span class="badge status-pending">Pending</span></td>
-            <td class="actions-cell">
-              <button class="btn btn-solid">Confirm</button>
-              <button class="btn btn-border">Decline</button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Tebogo Mnguni</strong></td>
-            <td>Computing Fundamentals</td>
-            <td>Oct 25</td>
-            <td>11:00</td>
-            <td><span class="badge status-confirmed">Confirmed</span></td>
-            <td class="actions-cell">
-              <button class="btn btn-border">Reschedule</button>
-              <button class="btn btn-danger">Cancel</button>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Blessing Manhique</strong></td>
-            <td>Computing Fundamentals</td>
-            <td>Oct 25</td>
-            <td>11:00</td>
-            <td><span class="badge status-confirmed">Confirmed</span></td>
-            <td class="actions-cell">
-              <button class="btn btn-border">Reschedule</button>
-              <button class="btn btn-danger">Cancel</button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody id="bookingsBody"></tbody>
       </table>
     </div>
   </div>
-<script src="Bookings-ASSESSOR.js"></script>
+
+  <script type="module" src="../src/bookings-assessor.js"></script>
 </body>
 </html>

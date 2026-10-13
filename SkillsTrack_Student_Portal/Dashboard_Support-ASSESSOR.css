@@ -12,6 +12,58 @@ body {
   color: #333333;
   padding: 24px;
 }
+/* --- Shared Navigation Bar Layout --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px 40px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: #000000;
+  font-weight: 700;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 4px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.btn-signout {
+  background: none;
+  border: 1px solid #cccccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
 
 /* --- Typography --- */
 h1 {

@@ -3,12 +3,12 @@
 }
 
 :root {
-  --bg: #f3f4f6;
-  --card: #ffffff;
-  --border: #e5e7eb;
+  --bg: #eca115;
+  --card: #fcfcfb;
+  --border: #ECA115;
   --text: #111827;
   --muted: #6b7280;
-  --primary: #374151;
+  --primary: #513737;
   --primary-dark: #111827;
   --danger: #dc2626;
   --success: #16a34a;
@@ -42,17 +42,6 @@ body.page {
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
-}
-
-.brand-icon {
-  display: inline-flex;
-  width: 30px;
-  height: 30px;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--primary-dark);
-  border-radius: 6px;
-  color: var(--primary-dark);
 }
 
 .brand {
@@ -143,7 +132,7 @@ body.page {
   border: none;
   border-radius: 8px;
   background: var(--primary);
-  color: #ffffff;
+  color: #34a146;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;

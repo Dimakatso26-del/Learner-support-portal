@@ -1,3 +1,6 @@
+import { protectPage } from "./session.js";
+protectPage("STUDENT");
+
 const tasks = [
     {
         title: "Project: JavaScript",

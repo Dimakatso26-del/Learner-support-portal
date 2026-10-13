@@ -1,3 +1,7 @@
+import { protectPage } from "./session.js";
+import { auth, watchAuthState } from "./auth.js";
+protectPage("STUDENT");
+
 const tasks = [
     {
         title: "Project: JavaScript",
@@ -30,6 +34,7 @@ const tasks = [
         priority: "High"
     }
 ];
+
 
 // Statistics
 const totalTasks = tasks.length;
